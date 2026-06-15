@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memberships - JCOM Zone 18</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  
+  <style>
+    /* Custom Membership Styles */
+    .benefit-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.01);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        height: 100%;
+    }
+    .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 164, 239, 0.12) !important;
+        border-color: rgba(0, 164, 239, 0.2) !important;
+    }
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: rgba(0, 164, 239, 0.08);
+        color: #00a4ef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+    }
+    .benefit-card:hover .benefit-icon {
+        background: #00a4ef;
+        color: #ffffff;
+        transform: rotate(5deg) scale(1.05);
+    }
+    .form-card {
+        background: #ffffff;
+        border-radius: 24px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .faq-item {
+        border-bottom: 1px dashed rgba(0,0,0,0.1);
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    /* Benefits Section Styles */
+    .benefits-section { 
+        padding: 100px 0; 
+        background: linear-gradient(135deg, #0b1120 0%, #0f172a 100%); /* Refined navy/slate gradient */
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .benefits-header {
+        text-align: left;
+        margin-bottom: 60px;
+        max-width: 900px;
+    }
+
+    .benefits-title {
+        font-size: 3rem; /* Adjusted down slightly from 4rem for proportion */
+        font-weight: 800;
+        margin-bottom: 25px;
+        color: #fff;
+        letter-spacing: -1px;
+    }
+
+    .benefits-subtitle {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: #e0e0e0;
+    }
+
+    .benefits-grid-wrap {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 40px 0;
+    }
+
+    .benefits-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .benefits-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .benefits-num-wrap {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .benefits-num {
+        background: #1da1f2;
+        color: #fff;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .benefits-num-wrap::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 1px;
+        background: rgba(255,255,255,0.3);
+    }
+
+    /* Connectors */
+    .left-col .benefits-num-wrap::after { right: -40px; }
+    .right-col .benefits-num-wrap::after { left: -40px; }
+
+    .benefits-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.95);
+    }
+
+    /* Central Circle */
+    .benefits-center {
+        flex-shrink: 0;
+        width: 350px;
+        height: 350px;
+        margin: 0 40px;
+        position: relative;
+    }
+
+    .benefits-center-circle {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid #1da1f2;
+        overflow: hidden;
+        padding: 15px;
+    }
+
+    .benefits-center-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .benefits-column-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 35px;
+        letter-spacing: 1px;
+        color: #00a4ef;
+    }
+
+    .left-col { text-align: left; }
+    .right-col { text-align: left; }
+    .right-col .benefits-item { flex-direction: row-reverse; }
+
+    @media (max-width: 1200px) {
+        .benefits-center { width: 280px; height: 280px; }
+    }
+
+    @media (max-width: 991px) {
+        .benefits-grid-wrap { flex-direction: column; gap: 60px; }
+        .benefits-center { margin: 40px auto; }
+        .benefits-num-wrap::after { display: none; }
+        .benefits-title { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / NAVIGATION -->
+  <header class="fixed-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container navbar-pill">
+        <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration: none;">
+          <img src="images/logo1.png" alt="Logo Icon" style="height: 65px; margin-right: 10px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="memberships.html">Memberships</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header-banner">
+      <div class="container">
+          <h1 class="page-header-title" data-aos="fade-up">JCOM MEMBERSHIPS</h1>  
+      </div>
+  </section>
+
+  <!-- BENEFITS / IMPORTANCE OF MEMBERSHIP -->
+  <section class="py-5" style="background: #f8fafc;">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="text-primary fw-bold text-uppercase tracking-wider small">Why Join JCOM?</span>
+        <h2 class="fw-bold mt-1 text-dark fs-1" data-aos="fade-down">The Importance of Membership</h2>
+        <p class="text-muted col-lg-7 mx-auto" data-aos="fade-up">Being a JCOM member connects you with an elite community of business owners, leaders, and change-makers committed to regional development and business success.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Benefit 1 -->
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h4 class="fw-bold text-dark mb-3">Elite Business Network</h4>
+            <p class="text-muted">Direct access to local business entrepreneurs, national advisors, and corporate partners across Zone 18 and other regions.</p>
+          </div>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h4 class="fw-bold text-dark mb-3">Business Referral Swap</h4>
+            <p class="text-muted">Participate in dedicated weekly referral mixers designed to trade high-quality cross-table business connections and leads.</p>
+          </div>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <h4 class="fw-bold text-dark mb-3">Masterclasses & Skills</h4>
+            <p class="text-muted">Enhance your professional growth with regular, interactive training sessions on marketing, finance, corporate laws, and AI.</p>
+          </div>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-ticket-perforated-fill"></i>
+            </div>
+            <h4 class="fw-bold text-dark mb-3">VIP Event Access</h4>
+            <p class="text-muted">Enjoy free or discounted VIP reservations to all Zone 18 business leadership summits, conventions, and trade fairs.</p>
+          </div>
+        </div>
+
+        <!-- Benefit 5 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-globe"></i>
+            </div>
+            <h4 class="fw-bold text-dark mb-3">Brand Promotion</h4>
+            <p class="text-muted">Display your logo and business credentials in the JCOM official directory, expanding your corporate reach to digital audiences.</p>
+          </div>
+        </div>
+
+        <!-- Benefit 6 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="bi bi-heart-fill"></i>
+            </div>
+            <h4 class="fw-bold text-dark mb-3">Community Impact</h4>
+            <p class="text-muted">Collaborate on social impact projects to bring positive societal change, enhancing corporate social responsibility (CSR).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS & CHALLENGES SECTION ===== -->
+  <section class="benefits-section">
+      <div class="container">
+          <!-- Header -->
+          <div class="benefits-header" data-aos="fade-up">
+              <h2 class="benefits-title">JCI & JCOM Membership Advantages</h2>
+              <p class="benefits-subtitle">
+                  Unlock exclusive access to a global network of high-performing tables, professional consulting, and strategic resources designed for business growth and social impact.
+              </p>
+          </div>
+
+          <!-- Grid -->
+          <div class="benefits-grid-wrap">
+              <!-- Left Column: Core Advantages -->
+              <div class="benefits-column left-col">
+                  <h3 class="benefits-column-title">Membership Advantages</h3>
+                  
+                  <div class="benefits-item" data-aos="fade-right" data-aos-delay="100">
+                      <div class="benefits-num-wrap"><div class="benefits-num">01</div></div>
+                      <p class="benefits-text"><strong>Unique Structure:</strong> Only JCOM has 4 different types of specialized Tables.</p>
+                  </div>
+
+                  <div class="benefits-item" data-aos="fade-right" data-aos-delay="200">
+                      <div class="benefits-num-wrap"><div class="benefits-num">02</div></div>
+                      <p class="benefits-text"><strong>Global Impact:</strong> Access a vast network of 50,000+ members worldwide through JCI.</p>
+                  </div>
+
+                  <div class="benefits-item" data-aos="fade-right" data-aos-delay="300">
+                      <div class="benefits-num-wrap"><div class="benefits-num">03</div></div>
+                      <p class="benefits-text"><strong>Excellence:</strong> The strength and legacy of world-class JCI Training programs.</p>
+                  </div>
+
+                  <div class="benefits-item" data-aos="fade-right" data-aos-delay="400">
+                      <div class="benefits-num-wrap"><div class="benefits-num">04</div></div>
+                      <p class="benefits-text"><strong>Scale:</strong> Direct access to pool purchase programs through Association Tables.</p>
+                  </div>
+              </div>
+
+              <!-- Center Circle -->
+              <div class="benefits-center" data-aos="zoom-in">
+                  <div class="benefits-center-circle">
+                      <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2074" alt="JCI Community">
+                  </div>
+              </div>
+
+              <!-- Right Column: Strategic Benefits -->
+              <div class="benefits-column right-col">
+                  <h3 class="benefits-column-title">Strategic Networking</h3>
+
+                  <div class="benefits-item" data-aos="fade-left" data-aos-delay="100">
+                      <div class="benefits-num-wrap"><div class="benefits-num">01</div></div>
+                      <p class="benefits-text"><strong>Expert Support:</strong> Overcome challenges with guidance from consultants and experts.</p>
+                  </div>
+
+                  <div class="benefits-item" data-aos="fade-left" data-aos-delay="200">
+                      <div class="benefits-num-wrap"><div class="benefits-num">02</div></div>
+                      <p class="benefits-text"><strong>Social Connect:</strong> Socialize and grow within a truly unique corporate business group.</p>
+                  </div>
+
+                  <div class="benefits-item" data-aos="fade-left" data-aos-delay="300">
+                      <div class="benefits-num-wrap"><div class="benefits-num">03</div></div>
+                      <p class="benefits-text"><strong>Global Range:</strong> International network - Empowering Local growth for Global reach.</p>
+                  </div>
+
+                  <div class="benefits-item" data-aos="fade-left" data-aos-delay="400">
+                      <div class="benefits-num-wrap"><div class="benefits-num">04</div></div>
+                      <p class="benefits-text"><strong>Jvc Connect:</strong> Virtual Community for social connect with global members.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- MEMBERSHIP APPLICATION FORM SECTION -->
+  <section class="py-5" style="background: #ffffff;">
+    <div class="container py-4">
+      <div class="row g-5 align-items-stretch">
+        
+        <!-- Left Column: Info / FAQs -->
+        <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-right">
+          <div class="mb-4">
+            <span class="badge bg-light text-primary border px-3 py-2 rounded-pill fw-bold mb-2">Apply Now</span>
+            <h2 class="fw-bold text-dark fs-1">Start Your JCOM Journey Today</h2>
+            <p class="text-muted mt-3">Complete the application form to request membership in JCOM. Your application will be forwarded to the governing board for review, and we will contact you shortly.</p>
+          </div>
+
+          <div class="pe-lg-4 mt-2">
+            <h5 class="fw-bold text-dark mb-3"><i class="bi bi-question-circle-fill text-primary me-2"></i> FAQ</h5>
+            
+            <div class="faq-item">
+              <h6 class="fw-bold text-dark mb-2">Who is eligible to join?</h6>
+              <p class="text-muted small m-0">Business owners, entrepreneurs, corporate managers, and professionals aged between 18 and 40 who are eager to grow their networks and serve the community.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h6 class="fw-bold text-dark mb-2">How long does review take?</h6>
+              <p class="text-muted small m-0">The Zone Governing Board typically reviews applications and updates candidate members within 5 to 7 business days.</p>
+            </div>
+
+            <div class="faq-item border-0">
+              <h6 class="fw-bold text-dark mb-2">Is there an interview process?</h6>
+              <p class="text-muted small m-0">Yes, candidate members are invited to attend a JCOM chapter breakfast meet or call for a quick mutual introduction.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Form -->
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="form-card p-4 p-md-5">
+            <h3 class="fw-bold text-dark mb-4"><i class="bi bi-file-earmark-text text-primary me-2"></i> Application Form</h3>
+            
+            <form id="membershipForm">
+              <div class="row g-3">
+                
+                <div class="col-md-6">
+                  <label class="form-label text-dark fw-semibold">Full Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-person text-muted"></i></span>
+                    <input type="text" class="form-control border-start-0 ps-0" id="m_name" required placeholder="Enter your name">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label text-dark fw-semibold">Email Address</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope text-muted"></i></span>
+                    <input type="email" class="form-control border-start-0 ps-0" id="m_email" required placeholder="Enter email">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label text-dark fw-semibold">Phone Number</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-telephone text-muted"></i></span>
+                    <input type="tel" class="form-control border-start-0 ps-0" id="m_phone" required placeholder="e.g. +91 9876543210">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label text-dark fw-semibold">WhatsApp Number</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-whatsapp text-muted"></i></span>
+                    <input type="tel" class="form-control border-start-0 ps-0" id="m_whatsapp" required placeholder="e.g. 919876543210">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label text-dark fw-semibold">Company / Business Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-building text-muted"></i></span>
+                    <input type="text" class="form-control border-start-0 ps-0" id="m_company" placeholder="Company Name">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label text-dark fw-semibold">Business Industry / Domain</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-briefcase text-muted"></i></span>
+                    <input type="text" class="form-control border-start-0 ps-0" id="m_industry" placeholder="e.g. IT, Real Estate, Retail">
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label text-dark fw-semibold">Tell us why you want to join JCOM</label>
+                  <textarea class="form-control" id="m_message" rows="4" required placeholder="Briefly state your purpose or business domains you'd like to collaborate with..."></textarea>
+                </div>
+
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn btn-primary btn-explore w-100 justify-content-center fw-bold py-3" id="applySubmitBtn">
+                    Apply for Membership <i class="bi bi-arrow-right ms-2"></i>
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-jcom">
+    <div class="container">
+      <div class="row g-4 footer-top">
+        <!-- BRAND -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-logo d-flex align-items-center mb-3">
+            <img src="images/logo1.png" alt="JCOM Logo" style="max-height: 60px;">
+          </div>
+          <p class="footer-desc">
+            JCOM is a dynamic leadership and business development platform empowering individuals to grow personally, professionally, and socially.
+          </p>
+          <div class="social-links mt-3">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- RESOURCES -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Resources</h5>
+          <ul class="footer-links">
+            <li><a href="#">Events & Workshops</a></li>
+            <li><a href="#">Business Networking</a></li>
+            <li><a href="#">Leadership Programs</a></li>
+            <li><a href="#">Community Service</a></li>
+          </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Contact Us</h5>
+          <ul class="footer-contact">
+            <li><i class="bi bi-geo-alt-fill"></i> JCOM Headquarters, India</li>
+            <li><i class="bi bi-envelope-fill"></i> info@jcom.org</li>
+            <li><i class="bi bi-telephone-fill"></i> +91 98765 43210</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BOTTOM -->
+      <div class="footer-bottom text-center">
+        <p class="mb-0">© 2026 JCOM. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  
+  <script>
+    // Initialize AOS animations
+    AOS.init({duration: 900, once: true});
+
+    // Form Submission Logic
+    document.getElementById('membershipForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const btn = document.getElementById('applySubmitBtn');
+        btn.disabled = true;
+        btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status"></span> Submitting...`;
+
+        // ======================================================================
+        // PASTE YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL HERE
+        // ======================================================================
+        const API_URL = "https://script.google.com/macros/s/AKfycbwBMkw-0QorTLbFgWvMcL-mROGSzPAPQv7hH1x2BluP61sSuSz6peeDmBEZSL2UGw6SHg/exec";
+        
+        const rowData = {
+            "ID": "APP-" + Date.now(),
+            "Name": document.getElementById('m_name').value,
+            "Email": document.getElementById('m_email').value,
+            "Phone": document.getElementById('m_phone').value,
+            "Company": document.getElementById('m_company').value,
+            "Industry": document.getElementById('m_industry').value,
+            "Whatsapp": document.getElementById('m_whatsapp').value,
+            "Message": document.getElementById('m_message').value,
+            "Timestamp": new Date().toLocaleString()
+        };
+
+        if (API_URL && API_URL.startsWith("https://script.google.com/macros/s/")) {
+            const payload = {
+                "action": "add",
+                "sheet": "membership",
+                "row": rowData
+            };
+
+            fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Network response was not ok");
+                return res.json();
+            })
+            .then(result => {
+                if (result.status === 'success') {
+                    alert(result.message || 'Your JCOM membership application was submitted successfully! The Governing Board will contact you shortly.');
+                    document.getElementById('membershipForm').reset();
+                } else {
+                    alert('Submission Error: ' + (result.message || 'Failed to submit application.'));
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Connection error. Please check your internet connection or try again later.');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = `Apply for Membership <i class="bi bi-arrow-right ms-2"></i>`;
+            });
+        } else {
+            // Local fallback simulation when API URL is not set yet
+            setTimeout(() => {
+                alert('Local Mode Simulator: Application submitted successfully! (Note: Connect your Google Sheets in admin panel to store this dynamically).');
+                console.log("Mock Submitted Application Payload:", rowData);
+                document.getElementById('membershipForm').reset();
+                btn.disabled = false;
+                btn.innerHTML = `Apply for Membership <i class="bi bi-arrow-right ms-2"></i>`;
+            }, 1000);
+        }
+    });
+  
+
+    // Handle header scroll & auto active nav link highlights
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.fixed-header');
+      if (header) {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+
+</script>
+</body>
+</html>

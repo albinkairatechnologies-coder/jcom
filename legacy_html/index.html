@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Global Leadership Summit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/icon.png">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link href="style.css" rel="stylesheet">
+  
+  <!-- Swiper JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+
+
+    .team-section {
+      min-height: 80vh;
+      background: radial-gradient(circle at top, #3b3b3b 0%, #1f1f1f 70%);
+      display: flex;
+      align-items: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-section1 {
+      background: radial-gradient(circle at top, #3b3b3b 0%, #1f1f1f 70%);
+      color: #fff;
+      padding-bottom: 40px; /* Reduced bottom padding */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-section1::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%);
+      transform: skewX(-6deg);
+
+    }
+
+    /* ANGLED OVERLAY */
+    .team-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%);
+      transform: skewX(-6deg);
+    }
+
+    /* CONTENT */
+    .team-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* HEADING */
+    .team-content h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+    }
+
+    /* BUTTON */
+    .team-btn {
+      background: #1da1f2;
+      color: #fff;
+      padding: 14px 34px;
+      border-radius: 40px;
+      font-weight: 600;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .team-btn:hover {
+      background: #9f3b25;
+      transform: translateY(-2px);
+    }
+
+    /* IMAGE CONTAINER */
+    .team-images-wrap {
+      margin-top: 50px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 70px;
+      padding: 25px 40px;
+      display: inline-flex;
+      gap: 25px;
+    }
+
+    /* TEAM IMAGE */
+    .team-img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .team-images-wrap {
+        padding: 20px;
+        gap: 15px;
+      }
+
+      .team-img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+
+
+
+
+
+
+
+    /* SECTION TITLES */
+    .section-title {
+      font-family: 'Alegreya', serif;
+      /* ✅ Changed */
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== NEWS CAROUSEL ===== */
+    .news-card {
+      border: 1px solid #1da1f2;
+      background: #fff;
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .news-body {
+      padding: 15px;
+      min-height: 70px;
+    }
+
+    .news-body h6 {
+      font-size: 15px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .read-more {
+      text-align: center;
+      padding: 12px;
+      border-top: 1px solid #1da1f2;
+      ;
+      color: #1da1f2;
+      ;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* ===== BULLETIN BOARD ===== */
+    .bulletin-box {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      height: 430px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+
+    .bulletin-track {
+      animation: bulletinScroll 14s linear infinite;
+    }
+
+    .bulletin-box:hover .bulletin-track {
+      animation-play-state: paused;
+    }
+
+    .bulletin-item {
+      padding: 14px 18px;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .bulletin-item strong {
+      color: #1da1f2
+    }
+
+    .bulletin-item p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    @keyframes bulletinScroll {
+      from {
+        transform: translateY(0)
+      }
+
+      to {
+        transform: translateY(-50%)
+      }
+    }
+
+    .prev-icon {
+      position: relative;
+      bottom: 120px;
+    }
+
+
+
+    .ctas_newsletter {
+      position: relative;
+      padding: 90px 20px;
+      text-align: center;
+      background-image: url("images/meet.jpg");
+      /* BACKGROUND IMAGE */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+    /* Overlay for better text readability */
+    .ctas_newsletter::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .ctas_newsletter .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .ctas_tagline {
+      font-size: 14px;
+      color: #6c757d;
+      margin-bottom: 12px;
+    }
+
+    .ctas_heading {
+      font-size: 34px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.3;
+    }
+
+    .ctas_heading span {
+      color: #3b82f6;
+    }
+
+    .ctas_form {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .ctas_input {
+      width: 320px;
+      max-width: 100%;
+      padding: 14px 18px;
+      border-radius: 50px;
+      border: 1px solid #d1d5db;
+      font-size: 15px;
+    }
+
+    .ctas_input:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
+    .ctas_btn {
+      padding: 14px 32px;
+      border-radius: 50px;
+      background: #3b82f6;
+      color: #fff;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .ctas_btn:hover {
+      background: #2563eb;
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .ctas_heading {
+        font-size: 26px;
+      }
+
+    }
+
+    .kk_associates-section {
+      padding: 60px 0;
+    }
+
+    /* Title */
+    .kk_associates-title {
+      font-size: 48px;
+      line-height: 1.2;
+    }
+
+    .kk_our {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+
+    .kk_associates {
+      font-weight: 700;
+    }
+
+    /* Carousel */
+    .kk_carousel-wrapper {
+      overflow: hidden;
+      width: calc((300px * 2) + 24px);
+    }
+
+    .kk_carousel-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.6s ease;
+    }
+
+    /* Card */
+    .kk_associate-card {
+      min-width: 300px;
+      height: 300px;
+      background: #f7f7f7;
+      border-radius: 6px;
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .kk_associate-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .kk_associate-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .kk_associate-card p {
+      font-size: 13px;
+      color: #555;
+      margin: 0;
+    }
+
+    /* second card offset */
+    @media (min-width: 768px) {
+      .kk_associate-card:nth-child(even) {
+        margin-top: 40px;
+      }
+
+    }
+
+    /* Buttons */
+    .kk_carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: #d75a3a;
+      color: #fff;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .kk_carousel-btn:hover {
+      background: #b9482d;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .kk_associates-title {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 40px;
+      }
+
+      .kk_carousel-wrapper {
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+      }
+
+      .kk_carousel-track {
+        gap: 16px;
+      }
+
+      .kk_associate-card {
+        min-width: 181px;
+        height: 297px;
+
+      }
+
+      .kk_associate-card img {
+        height: 100px;
+      }
+
+      .container1 {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .mar-left {
+        margin-left: 0;
+      }
+
+
+    }
+
+    /* PARALLAX JOIN SECTION */
+    .parallax-join {
+      background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1600');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 100px 0;
+      position: relative;
+      color: #fff;
+      text-align: center;
+    }
+
+    .parallax-join::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .parallax-join .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .parallax-join h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .parallax-join p {
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+
+    <header class="fixed-header">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container navbar-pill">
+          <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration: none;">
+            <img src="images/logo1.png" alt="Logo Icon" style="height: 65px; margin-right: 10px;">
+            <span style="font-size: 28px; font-weight: 800; color: #1da1f2; letter-spacing: 1px;"></span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="memberships.html">Memberships</a></li>
+              <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+              <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Removed navbar-right as requested -->
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+
+
+    <section id="events" class="news-section" data-aos="fade-up">
+
+      <!-- Fixed -->
+      <div class="news-label">
+        News & Events Recruitment
+      </div>
+
+      <!-- Marquee -->
+      <div class="news-marquee">
+        <div class="news-track">
+
+          <!-- ORIGINAL -->
+          <div class="news-item">
+            <img src="images/new.gif" alt="Loading gif">
+
+            <span class="news-dot">•</span><a class="text-decoration-none text-light fw-bold" href="#">
+              Empowering Business Leaders Through Networking & Opportunities</a>
+          </div>
+          <div class="news-item"><a class="text-decoration-none text-light fw-bold" href="#">
+             
+             
+            </a>
+          </div>
+
+          <!-- DUPLICATE (for seamless loop) -->
+          <div class="news-item">
+            <span class="news-dot">•</span><a class="text-decoration-none text-light fw-bold" href="#">
+              A platform where business meets opportunity. Network, collaborate, and unlock new possibilities with JCOM Zone</a>
+          </div>
+          <div class="news-item">
+            <span class="news-dot">•</span><a class="text-decoration-none text-light fw-bold" href="#">
+             Connect • Collaborate • Create Opportunities • Grow Together</a>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= PREMIUM HERO SLIDER ================= -->
+    <section id="home" class="hero-slider-section">
+      <div class="swiper heroSwiper">
+        <div class="swiper-wrapper">
+        
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="hero-slide-content slide-alt">
+              <div class="container">
+                <div class="row align-items-center">
+                  <div class="col-lg-6 hero-text-col">
+                    <div class="hero-badge" data-gsap="fade-right">LEADERSHIP EXCELLENCE</div>
+                    <h1 class="hero-title" data-gsap="fade-right" data-gsap-delay="0.2">
+                      Empowering The Next <br><span>Generation of Leaders.</span>
+                    </h1>
+                    <p class="hero-desc" data-gsap="fade-right" data-gsap-delay="0.4">
+                      JCOM provides the essential platform, resources, and mentorship you need to excel in your professional journey.
+                    </p>
+                    <div class="hero-btns" data-gsap="fade-right" data-gsap-delay="0.6">
+                      <a href="#" class="btn btn-premium">Get Started Today <i class="bi bi-chevron-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-image-split">
+                <img src="team/group2.png" alt="Leadership Excellence">
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="hero-slide-content">
+              <div class="container">
+                <div class="row align-items-center">
+                  <div class="col-lg-6 hero-text-col">
+                    <div class="hero-badge" data-gsap="fade-right">COLLECTIVE GROWTH</div>
+            
+                    <h1 class="hero-title" >
+                      Achieve More <br><span>Together. </span>
+                    </h1>
+                    <h2 class="hero-title">
+                      Connecting Communities, <br><span>Creating Impact.</span>
+                    </h2>
+                    
+                    <div class="hero-btns" data-gsap="fade-right" data-gsap-delay="0.6">
+                      <a href="#" class="btn btn-premium">Discover More <i class="bi bi-chevron-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-image-split">
+                <img src="team/group3.png" alt="Collective Growth">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+        <!-- Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <div class="container py-5">
+      <div class="row">
+
+        <!-- LEFT: NEWS -->
+        <div class="col-md-6">
+          <h3 class="section-title">UpComing Events</h3>
+
+          <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                <div class="news-card">
+                  <img src="images/ev.jpg">
+                  <div class="news-body">
+                    <h6>
+                      An innovation-driven ideathon encouraging students to present creative
+                      solutions for real-world challenges.
+                    </h6>
+                  </div>
+                  <div class="read-more text-dark fw-bold">Explore More</div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="news-card">
+                  <img src="images/ev2.jpg">
+                  <div class="news-body">
+                    <h6>
+                      A guest lecture on Artificial Intelligence and Machine Learning was
+                      successfully conducted on <strong>December 12, 2026</strong>.
+                    </h6>
+                  </div>
+                  <div class="read-more">READ MORE ></div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="news-card">
+                  <img src="images/ev3.jpg">
+                  <div class="news-body">
+                    <h6>
+                      A guest lecture on Artificial Intelligence and Machine Learning was
+                      successfully conducted on <strong>December 12, 2026</strong>.
+                    </h6>
+                  </div>
+                  <div class="read-more">READ MORE</div>
+                </div>
+              </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon prev-icon"></span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- RIGHT: BULLETIN -->
+        <div class="col-md-6">
+          <h3 class="section-title">Our Completed Events</h3>
+
+          <div class="bulletin-box">
+            <div class="bulletin-track">
+
+              <div class="bulletin-item">
+                <strong>Statistical Tools Workshop</strong>
+                <p>November 03 – 05, 2025 | Phase II: Feb 13 – 15, 2026</p>
+              </div>
+
+              <div class="bulletin-item">
+                <strong>IDEATHON-2025</strong>
+                <p>Internal Hackathon | 18.09.2025 – 20.09.2025</p>
+              </div>
+
+              <div class="bulletin-item">
+                <strong>Ph.D Admission Notification</strong>
+                <p>December 2025 Batch</p>
+              </div>
+
+              <div class="bulletin-item">
+                <strong>Digital Marketing Strategies</strong>
+                <p>Guest Lecture | September 10, 2025</p>
+              </div>
+
+              <!-- DUPLICATE FOR LOOP -->
+              <div class="bulletin-item">
+                <strong>Statistical Tools Workshop</strong>
+                <p>November 03 – 05, 2025 | Phase II: Feb 13 – 15, 2026</p>
+              </div>
+
+              <div class="bulletin-item">
+                <strong>IDEATHON-2025</strong>
+                <p>Internal Hackathon | 18.09.2025 – 20.09.2025</p>
+              </div>
+
+              <div class="bulletin-item">
+                <strong>Ph.D Admission Notification</strong>
+                <p>December 2025 Batch</p>
+              </div>
+
+              <div class="bulletin-item">
+                <strong>Digital Marketing Strategies</strong>
+                <p>Guest Lecture | September 10, 2025</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+    <section id="about" class="cc_section">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <!-- LEFT CONTENT -->
+          <div class="col-lg-6" data-aos="fade-right" style="position: relative; z-index: 10;">
+            <div class="about-content">
+              <div class="about-label">ABOUT JCOM</div>
+              <h2 class="about-heading">Welcome to <span>JCOM</span></h2>
+
+              <p class="about-description">
+                JCOM (Jaycees Chamber of Commerce / Junior Chamber Organisation for Members) is a dynamic leadership and
+                business development platform that empowers individuals to grow personally, professionally, and
+                socially.
+                Through structured training, business networking, community service, and leadership opportunities, JCOM
+                nurtures confident leaders who create positive impact in society.
+              </p>
+
+              <div class="about-cards">
+                <div class="about-card">
+                  <div class="icon-wrapper"><i class="bi bi-geo-alt-fill"></i></div>
+                  <h5>Countries<br>Embassies</h5>
+                  <p>Building global presence across countries.</p>
+                </div>
+                <div class="about-card">
+                  <div class="icon-wrapper"><i class="bi bi-people-fill"></i></div>
+                  <h5>Associate<br>Members</h5>
+                  <p>A strong network of passionate members.</p>
+                </div>
+                <div class="about-card">
+                  <div class="icon-wrapper"><i class="bi bi-diagram-3-fill"></i></div>
+                  <h5>Organizations<br>Connected</h5>
+                  <p>Partners and organizations working together.</p>
+                </div>
+              </div>
+
+              <a href="#" class="btn-explore">Explore More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- RIGHT IMAGE (Hexagon) -->
+          <div class="col-lg-6 mt-5 mt-lg-0 position-relative" data-aos="fade-left">
+            <div class="large-circle-decor"></div>
+            <div class="dots-bg-top"></div>
+            <div class="dots-bg-bottom"></div>
+            <div class="about-hexagon-wrap">
+              <div class="hexagon-container">
+                <img src="images/event.jpg" alt="About JCOM" class="hexagon-img">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="features" class="kk_associates-section team-section1">
+      <div class="container container1">
+        <div class="row align-items-center">
+
+          <!-- LEFT -->
+          <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-right">
+            <h2 class="kk_associates-title">
+              <span class="kk_our text-light">How JCOM Works?</span><br>
+            </h2>
+            <p class="text-light opacity-75 small mt-3">
+              JCOM table meetings are designed in such a manner so that JCOM members can fulfill all these requirements
+              with their active participation in JCOM table meetings and suggested activities.
+            </p>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="col-md-8">
+
+            <div class="kk_carousel-wrapper">
+              <div class="kk_carousel-track" id="carouselTrack">
+
+                <div class="kk_associate-card text-dark">
+                  <img src="https://img.icons8.com/?size=100&id=tyfqup8e652P&format=png&color=000000"
+                    style="height: 100px; width: 100px;" alt="Connections">
+                  <h4 class="mt-3">New connections</h4>
+                  <p>Build valuable professional and personal networks through active JCOM engagement.</p>
+                </div>
+
+                <div class="kk_associate-card text-dark">
+                  <img src="https://img.icons8.com/?size=100&id=114317&format=png&color=000000"
+                    style="height: 100px; width: 100px;" alt="Solutions">
+                  <h4 class="mt-3">Solutions of challenges</h4>
+                  <p>Collaborate with mentors and peers to find effective solutions for business and community hurdles.
+                  </p>
+                </div>
+
+                <div class="kk_associate-card text-dark">
+                  <img src="https://img.icons8.com/?size=100&id=114323&format=png&color=000000"
+                    style="height: 100px; width: 100px;" alt="Improvements">
+                  <h4 class="mt-3">Capability improvements</h4>
+                  <p>Enhance your leadership and professional skills through structured training and practice.</p>
+                </div>
+
+                <div class="kk_associate-card text-dark">
+                  <img src="https://img.icons8.com/?size=100&id=37913&format=png&color=000000"
+                    style="height: 100px; width: 100px;" alt="Expansion">
+                  <h4 class="mt-3">Expansion possibilities</h4>
+                  <p>Discover new avenues for growth and expand your reach within local and global communities.</p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-center gap-3 mt-4 mar-left">
+              <button class="kk_carousel-btn" onclick="prevSlide()">‹</button>
+              <button class="kk_carousel-btn" onclick="nextSlide()">›</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+    <section class="ms_section">
+      <div class="container">
+        <div class="row align-items-start">
+
+          <!-- LEFT VIDEO -->
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="ms_video">
+              <img src="images/group.jpg" alt="Team collaborating">
+
+            </div>
+          </div>
+
+
+
+          <!-- RIGHT CONTENT -->
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="ms_content ps-lg-5 text-dark">
+              <h2 class="mb-4">Who are we?</h2>
+              <p class="mb-4 text-dark">
+                JCOM is one of the world’s largest youth organizations of young leaders, entrepreneurs and active
+                citizens with nearly 2,00,000+ active members and millions of alumni in more than 6,000 communities in
+                over 120 countries.
+              </p>
+
+              <div class="ms_features mt-4 d-flex gap-4">
+                <div class="ms_feature_item d-flex align-items-center gap-2">
+                  <i class="bi bi-briefcase fs-4 text-primary"></i>
+                  <span class="fw-bold">Backed by Experience</span>
+                </div>
+                <div class="ms_feature_item d-flex align-items-center gap-2">
+                  <i class="bi bi-patch-check fs-4 text-primary"></i>
+                  <span class="fw-bold">Guided by Values</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="benefits" class="benefits-premium-section">
+      <div class="benefits-inner-container">
+        <div class="row align-items-stretch">
+          
+          <!-- LEFT IMAGE (LARGER) -->
+          <div class="col-lg-7" data-aos="fade-right">
+            <div class="benefits-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4" alt="Member Benefits">
+            </div>
+          </div>
+
+          <!-- RIGHT CARD (SMALLER) -->
+          <div class="col-lg-5" data-aos="fade-left">
+            <div class="benefits-card">
+              <div class="benefit-badge">Member Benefits</div>
+              <h2 class="benefits-title">What You Get as a Member</h2>
+
+              <div class="benefit-list">
+                <!-- Item 1 -->
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-people-fill"></i></div>
+                  <div class="benefit-content">
+                    <p><span class="benefit-title-inline">20-Chapter Meetings Per Year:</span> Our 90-minute meeting agenda provides a platform to invite qualified guests for the benefit of other Members, ensuring time and energy is invested.</p>
+                  </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                  <div class="benefit-content">
+                    <p><span class="benefit-title-inline">Professional Business Growth:</span> Enables every JCOM member to grow their business volume with confidence.</p>
+                  </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-diagram-3-fill"></i></div>
+                  <div class="benefit-content">
+                    <p><span class="benefit-title-inline">Systematic Networking:</span> Provides networking platform with structured and systematic meetings.</p>
+                  </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-person-badge-fill"></i></div>
+                  <div class="benefit-content">
+                    <p><span class="benefit-title-inline">Dedicated Mentorship:</span> Handholding approach to ensure the business growth of member.</p>
+                  </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-handshake-fill"></i></div>
+                  <div class="benefit-content">
+                    <p><span class="benefit-title-inline">Strategic Collaboration:</span> Connections with members across the country for collaboration to expand your business.</p>
+                  </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                  <div class="benefit-content">
+                    <p><span class="benefit-title-inline">Expert Training:</span> Business knowledge and skill development trainings with experts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="parallax-join">
+      <div class="container" data-aos="zoom-in">
+        <h2>Who can Join?</h2>
+        <p>
+          Any individual (Professional/ Self employed/ Entrepreneur);<br>
+          who is either active or associate/SMA or alumni member of JCI, can join JCOM through proper application.
+        </p>
+      </div>
+    </section>
+
+
+
+
+    <section class="chapters-section">
+      <div class="container">
+        
+        <div class="chapters-header-row mb-5" data-aos="fade-down">
+          <div class="header-left">
+            <span class="chapters-label-badge">Chapters</span>
+            <h2 class="chapters-main-title mt-2">Our Vibrant Chapters Across Thoothukudi</h2>
+          </div>
+          <div class="header-divider d-none d-lg-block"></div>
+          <div class="header-right d-none d-lg-block">
+            <p>Connecting entrepreneurs, empowering local ecosystems - explore the growing family of JCOM chapters.</p>
+          </div>
+        </div>
+
+        <div class="swiper chaptersSwiper" data-aos="fade-up">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <div class="chapter-card-new pt-4">
+                <div class="card-body-new">
+                  <img src="team/rajamoorthy2.jpg" alt="Rajamoorthy R" class="chapter-img">
+                  <h5 class="text-center mt-3 mb-1" style="color: #111; font-weight: 800; font-size: 16px;">Rajamoorthy R</h5>
+                </div>
+                <div class="card-footer-new">
+                  <a href="team.html" class="btn-chapter-read">Read More <span class="arrow-circle-new"><i class="bi bi-arrow-right"></i></span></a>
+                </div>
+                <div class="card-accent-shape"></div>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <div class="chapter-card-new pt-4">
+                <div class="card-body-new">
+                  <img src="team/virtual-photoshoot-2 (6) - sundar rajan.jpg" alt="Sundar Rajan" class="chapter-img">
+                  <h5 class="text-center mt-3 mb-1" style="color: #111; font-weight: 800; font-size: 16px;">Sundar Rajan</h5>
+                </div>
+                <div class="card-footer-new">
+                  <a href="team.html" class="btn-chapter-read">Read More <span class="arrow-circle-new"><i class="bi bi-arrow-right"></i></span></a>
+                </div>
+                <div class="card-accent-shape"></div>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <div class="chapter-card-new pt-4">
+                <div class="card-body-new">
+                  <img src="team/Screenshot_20251201_210947_Photos - Gayathri Thirupathi.jpg" alt="Gayathri Thirupathi" class="chapter-img">
+                  <h5 class="text-center mt-3 mb-1" style="color: #111; font-weight: 800; font-size: 16px;">Gayathri Thirupathi</h5>
+                </div>
+                <div class="card-footer-new">
+                  <a href="team.html" class="btn-chapter-read">Read More <span class="arrow-circle-new"><i class="bi bi-arrow-right"></i></span></a>
+                </div>
+                <div class="card-accent-shape"></div>
+              </div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="swiper-slide">
+              <div class="chapter-card-new pt-4">
+                <div class="card-body-new">
+                  <img src="team/LOGU assistant coach - JFD.G LOGANATHAN.png" alt="LOGANATHAN" class="chapter-img">
+                  <h5 class="text-center mt-3 mb-1" style="color: #111; font-weight: 800; font-size: 16px;">LOGANATHAN</h5>
+                </div>
+                <div class="card-footer-new">
+                  <a href="team.html" class="btn-chapter-read">Read More <span class="arrow-circle-new"><i class="bi bi-arrow-right"></i></span></a>
+                </div>
+                <div class="card-accent-shape"></div>
+              </div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="swiper-slide">
+              <div class="chapter-card-new pt-4">
+                <div class="card-body-new">
+                  <img src="team/JEETH PASSPOT SIZE PHOTO - Jeeth Pandien.jpg" alt="Jeeth Pandien" class="chapter-img">
+                  <h5 class="text-center mt-3 mb-1" style="color: #111; font-weight: 800; font-size: 16px;">Jeeth Pandien</h5>
+                </div>
+                <div class="card-footer-new">
+                  <a href="team.html" class="btn-chapter-read">Read More <span class="arrow-circle-new"><i class="bi bi-arrow-right"></i></span></a>
+                </div>
+                <div class="card-accent-shape"></div>
+              </div>
+            </div>
+            <!-- Slide 6 -->
+            <div class="swiper-slide">
+              <div class="chapter-card-new pt-4">
+                <div class="card-body-new">
+                  <img src="team/60d2995a-584f-4cdd-84a8-4f8e0e0dab4a - Aravind Gowsik. (1).jpeg" alt="Aravind Gowsik" class="chapter-img">
+                  <h5 class="text-center mt-3 mb-1" style="color: #111; font-weight: 800; font-size: 16px;">Aravind Gowsik</h5>
+                </div>
+                <div class="card-footer-new">
+                  <a href="team.html" class="btn-chapter-read">Read More <span class="arrow-circle-new"><i class="bi bi-arrow-right"></i></span></a>
+                </div>
+                <div class="card-accent-shape"></div>
+              </div>
+            </div>
+            <!-- Slide 7 -->
+            <div class="swiper-slide">
+              <div class="chapter-card-new pt-4">
+                <div class="card-body-new">
+                  <img src="team/e64633ab-76d4-4755-b5c1-51feede74430 - Pon Vijayan.jpeg" alt="Pon Vijayan" class="chapter-img">
+                  <h5 class="text-center mt-3 mb-1" style="color: #111; font-weight: 800; font-size: 16px;">Pon Vijayan</h5>
+                </div>
+                <div class="card-footer-new">
+                  <a href="team.html" class="btn-chapter-read">Read More <span class="arrow-circle-new"><i class="bi bi-arrow-right"></i></span></a>
+                </div>
+                <div class="card-accent-shape"></div>
+              </div>
+            </div>
+            <!-- Slide 8 -->
+            <div class="swiper-slide">
+              <div class="chapter-card-new pt-4">
+                <div class="card-body-new">
+                  <img src="team/IMG_20260405_121710_263~2 - Aarojin Infant Raja.png" alt="Aarojin Infant Raja" class="chapter-img">
+                  <h5 class="text-center mt-3 mb-1" style="color: #111; font-weight: 800; font-size: 16px;">Aarojin Infant Raja</h5>
+                </div>
+                <div class="card-footer-new">
+                  <a href="team.html" class="btn-chapter-read">Read More <span class="arrow-circle-new"><i class="bi bi-arrow-right"></i></span></a>
+                </div>
+                <div class="card-accent-shape"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Navigation -->
+          <div class="swiper-button-next chapters-next"></div>
+          <div class="swiper-button-prev chapters-prev"></div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <div class="newsletter-content" data-aos="fade-right">
+                <p class="newsletter-label">Subscribe Newsletter</p>
+                <h2 class="newsletter-title">Stay Updated with the Latest News!</h2>
+            </div>
+            
+            <form class="newsletter-form-wrapper" data-aos="fade-left" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Enter Email Address" required id="newsletterEmail">
+                <button type="submit" class="newsletter-btn">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer-jcom">
+      <div class="container">
+        <div class="row g-4 footer-top">
+          <!-- BRAND -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-logo d-flex align-items-center mb-3">
+              <img src="images/logo1.png" alt="JCOM Logo" style="max-height: 60px;">
+            </div>
+            <p class="footer-desc">
+              JCOM is a dynamic leadership and business development platform empowering individuals to grow personally, professionally, and socially.
+            </p>
+            <div class="social-links mt-3">
+              <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <!-- QUICK LINKS -->
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-title">Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- RESOURCES -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="#">Events & Workshops</a></li>
+              <li><a href="#">Business Networking</a></li>
+              <li><a href="#">Leadership Programs</a></li>
+              <li><a href="#">Community Service</a></li>
+            </ul>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Contact Us</h5>
+            <ul class="footer-contact">
+              <li><i class="bi bi-geo-alt-fill"></i> JCOM Headquarters, India</li>
+              <li><i class="bi bi-envelope-fill"></i> info@jcom.org</li>
+              <li><i class="bi bi-telephone-fill"></i> +91 98765 43210</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom text-center">
+          <p class="mb-0">© 2026 JCOM. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- JS -->
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    // Newsletter Form Submission Handler
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            alert(`Thank you for subscribing with: ${email}`);
+            newsletterForm.reset();
+        });
+    }
+
+
+
+
+
+    const track = document.getElementById('carouselTrack');
+    const cards = document.querySelectorAll('.kk_associate-card');
+    let index = 0;
+
+    function gap() {
+      return window.innerWidth < 768 ? 16 : 24;
+    }
+
+    function cardWidth() {
+      return cards[0].offsetWidth + gap();
+    }
+
+    function nextSlide() {
+      if (index < cards.length - 2) {
+        index++;
+        track.style.transform = `translateX(-${index * cardWidth()}px)`;
+      }
+    }
+
+    function prevSlide() {
+      if (index > 0) {
+        index--;
+        track.style.transform = `translateX(-${index * cardWidth()}px)`;
+      }
+    }
+
+    window.addEventListener('resize', () => {
+      track.style.transform = `translateX(-${index * cardWidth()}px)`;
+    });
+
+
+    /* ACCORDION LOGIC */
+    document.querySelectorAll('.km_item').forEach(item => {
+      item.addEventListener('click', () => {
+
+        const desc = item.nextElementSibling;
+
+        document.querySelectorAll('.km_item_desc').forEach(d => {
+          if (d !== desc) {
+            d.style.maxHeight = null;
+            d.previousElementSibling.classList.remove('active');
+          }
+        });
+
+        if (desc.style.maxHeight) {
+          desc.style.maxHeight = null;
+          item.classList.remove('active');
+        } else {
+          desc.style.maxHeight = desc.scrollHeight + 'px';
+          item.classList.add('active');
+        }
+      });
+    });
+
+
+
+
+
+
+    // Scroll to top on reload
+    window.addEventListener('load', () => {
+      window.scrollTo(0, 0);
+    });
+
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+
+
+    // Handle header scroll & auto active nav link highlights
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.fixed-header');
+      if (header) {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+
+
+
+
+
+  </script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // Initialize Swiper
+
+    const heroSwiper = new Swiper('.heroSwiper', {
+      loop: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on: {
+        init: function () {
+          animateHeroContent(this.slides[this.activeIndex]);
+        },
+        slideChangeTransitionStart: function () {
+          // Reset animations on all slides
+          gsap.set('[data-gsap]', { opacity: 0, x: -50, scale: 0.8 });
+        },
+        slideChangeTransitionEnd: function () {
+          animateHeroContent(this.slides[this.activeIndex]);
+        }
+      }
+    });
+
+    function animateHeroContent(activeSlide) {
+      const elements = activeSlide.querySelectorAll('[data-gsap]');
+      elements.forEach(el => {
+        const effect = el.getAttribute('data-gsap');
+        const delay = parseFloat(el.getAttribute('data-gsap-delay') || 0);
+
+        if (effect === 'fade-right') {
+          gsap.fromTo(el, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1, delay: delay, ease: 'power3.out' });
+        } else if (effect === 'zoom-in') {
+          gsap.fromTo(el, { opacity: 0, scale: 0.5, x: 0 }, { opacity: 1, scale: 1, x: 0, duration: 1.2, delay: delay, ease: 'back.out(1.7)' });
+        }
+      });
+    }
+
+    // Chapters Swiper
+    const chaptersSwiper = new Swiper('.chaptersSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: '.chapters-next',
+        prevEl: '.chapters-prev',
+      },
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1400: {
+          slidesPerView: 5,
+          spaceBetween: 25,
+        },
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

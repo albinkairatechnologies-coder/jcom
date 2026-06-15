@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - JCOM Zone 18</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8fafc; }
+    .admin-container {
+      max-width: 950px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 40px;
+    }
+    .admin-header {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    .nav-pills .nav-link.active {
+      background: linear-gradient(90deg, #1da1f2, #0077b5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ADMIN LOGIN OVERLAY (Simple Client Side Protection) -->
+  <div id="loginOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#0f172a; z-index:9999; display:flex; align-items:center; justify-content:center;">
+    <div style="background:white; padding:40px; border-radius:12px; text-align:center; width: 100%; max-width: 400px;">
+        <img src="images/logo1.png" height="60" class="mb-4">
+        <h4 class="fw-bold mb-4">Admin Login</h4>
+        <input type="password" id="adminPassword" class="form-control mb-3" placeholder="Enter Admin Password">
+        <button class="btn btn-primary w-100 fw-bold" onclick="checkPassword()">Login</button>
+        <p id="loginError" class="text-danger mt-2" style="display:none;">Incorrect Password</p>
+    </div>
+  </div>
+
+  <div class="admin-container" id="adminDashboard" style="display:none;">
+    <div class="admin-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+      <div class="d-flex align-items-center gap-3">
+        <h2 class="fw-bold m-0"><i class="bi bi-shield-lock-fill text-primary"></i> Control Panel</h2>
+        <span id="connectionBadge" class="badge bg-warning text-dark"><i class="bi bi-arrow-repeat spin"></i> Checking DB connection...</span>
+      </div>
+      <a href="index.html" class="btn btn-outline-secondary btn-sm"><i class="bi bi-house"></i> Back to Site</a>
+    </div>
+
+    <!-- TABS -->
+    <ul class="nav nav-pills mb-4 gap-2" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active fw-bold px-4" data-bs-toggle="pill" data-bs-target="#team-tab">Team Members</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-bold px-4" data-bs-toggle="pill" data-bs-target="#events-tab">Events</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-bold px-4" data-bs-toggle="pill" data-bs-target="#applications-tab">Membership Apps</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-bold px-4" data-bs-toggle="pill" data-bs-target="#contacts-tab">Contact Queries</button>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+      <!-- TEAM MEMBERS TAB -->
+      <div class="tab-pane fade show active" id="team-tab">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-4">Add New Team Member</h5>
+                <form id="teamForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" id="t_name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Role (e.g. Chairman, President, Vice Chairman)</label>
+                            <input type="text" class="form-control" id="t_role" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="t_phone" placeholder="e.g. +91 9876543210">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">WhatsApp</label>
+                            <input type="text" class="form-control" id="t_whatsapp" placeholder="e.g. 919876543210">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Photo URL (Google Drive Image Link or public image link)</label>
+                            <input type="url" class="form-control" id="t_image" placeholder="https://..." required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Bio / Business Domain</label>
+                            <textarea class="form-control" id="t_bio" rows="3" placeholder="Brief description of business or bio..."></textarea>
+                        </div>
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-primary fw-bold px-5" id="teamSubmitBtn">Add Member</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Team Members List Table -->
+        <div class="card border-0 shadow-sm mt-4">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-3">Current Team Members</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Phone / WhatsApp</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teamListBody">
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">No team members loaded. Configure Google Sheets Web App URL in source code.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- EVENTS TAB -->
+      <div class="tab-pane fade" id="events-tab">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-4">Add New Event</h5>
+                <form id="eventForm">
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <label class="form-label">Event Title</label>
+                            <input type="text" class="form-control" id="e_title" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Category / Badge</label>
+                            <select class="form-select" id="e_category">
+                                <option value="Summit">Summit</option>
+                                <option value="Trade Expo">Trade Expo</option>
+                                <option value="Workshop">Workshop</option>
+                                <option value="Networking">Networking</option>
+                                <option value="Awards Night">Awards Night</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Date</label>
+                            <input type="date" class="form-control" id="e_date" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Time</label>
+                            <input type="text" class="form-control" id="e_time" placeholder="e.g. 09:30 AM - 05:30 PM">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" id="e_location" placeholder="e.g. Chennai" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Event Photo URL</label>
+                            <input type="url" class="form-control" id="e_image" placeholder="https://..." required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Register URL / Action URL (Google Form, etc.)</label>
+                            <input type="url" class="form-control" id="e_action_url" placeholder="https://...">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Event Description</label>
+                            <textarea class="form-control" id="e_description" rows="3" required placeholder="Describe the JCOM event details here..."></textarea>
+                        </div>
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-primary fw-bold px-5" id="eventSubmitBtn">Add Event</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Events List Table -->
+        <div class="card border-0 shadow-sm mt-4">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-3">Current Events</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Photo</th>
+                                <th>Event Title</th>
+                                <th>Date & Time</th>
+                                <th>Location</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventListBody">
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">No events loaded. Configure Google Sheets Web App URL in source code.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- APPLICATIONS TAB -->
+      <div class="tab-pane fade" id="applications-tab">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-3">Membership Applications</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email / Phone</th>
+                                <th>Company / Industry</th>
+                                <th>Message</th>
+                                <th>Applied Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applicationListBody">
+                            <tr>
+                                <td colspan="6" class="text-center text-muted py-4">No applications loaded. Configure Google Sheets Web App URL in source code.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- CONTACTS TAB -->
+      <div class="tab-pane fade" id="contacts-tab">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-3">Contact Queries</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contactListBody">
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">No contact queries loaded. Configure Google Sheets Web App URL in source code.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+      // ======================================================================
+      // PASTE YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL HERE
+      // ======================================================================
+      const API_URL = "https://script.google.com/macros/s/AKfycbwBMkw-0QorTLbFgWvMcL-mROGSzPAPQv7hH1x2BluP61sSuSz6peeDmBEZSL2UGw6SHg/exec";
+
+      // Simple client-side protection (Password: admin123)
+      function checkPassword() {
+          if(document.getElementById('adminPassword').value === 'admin123') {
+              document.getElementById('loginOverlay').style.display = 'none';
+              document.getElementById('adminDashboard').style.display = 'block';
+              fetchData();
+          } else {
+              document.getElementById('loginError').style.display = 'block';
+          }
+      }
+
+      // Fetch data using JSONP as a fallback to bypass CORS/Tracking Prevention on local hosts
+      function fetchWithJSONPFallback(url, action) {
+          return fetch(`${url}?action=${action}`)
+              .then(res => {
+                  if (!res.ok) throw new Error("CORS or Network Error");
+                  return res.json();
+              })
+              .catch(err => {
+                  console.warn(`Standard fetch failed for action ${action}. Trying JSONP callback fallback...`, err);
+                  
+                  return new Promise((resolve, reject) => {
+                      const callbackName = 'jsonp_' + action + '_' + Math.round(Math.random() * 1000000);
+                      const script = document.createElement('script');
+                      
+                      window[callbackName] = function(data) {
+                          resolve(data);
+                          document.body.removeChild(script);
+                          delete window[callbackName];
+                      };
+                      
+                      script.onerror = (scriptErr) => {
+                          reject(new Error(`Both fetch and JSONP failed for ${action}`));
+                          document.body.removeChild(script);
+                          delete window[callbackName];
+                      };
+                      
+                      script.src = `${url}?action=${action}&callback=${callbackName}`;
+                      document.body.appendChild(script);
+                  });
+              });
+      }
+
+      // Check connection to Google Sheet backend
+      function checkDatabaseConnection() {
+          const badge = document.getElementById('connectionBadge');
+          if (!badge) return;
+
+          if (!API_URL || !API_URL.startsWith("https://script.google.com/macros/s/")) {
+              badge.className = "badge bg-danger";
+              badge.innerHTML = `<i class="bi bi-exclamation-triangle-fill"></i> Database: Disconnected (No Web App URL)`;
+              disableAdminForms(true);
+              return;
+          }
+
+          fetchWithJSONPFallback(API_URL, "getTeams")
+              .then(() => {
+                  badge.className = "badge bg-success";
+                  badge.innerHTML = `<i class="bi bi-cloud-check-fill"></i> Database: Connected`;
+                  disableAdminForms(false);
+              })
+              .catch(err => {
+                  console.error("Connection check failed:", err);
+                  badge.className = "badge bg-danger";
+                  badge.innerHTML = `<i class="bi bi-exclamation-circle-fill"></i> Database: Connection Error`;
+                  disableAdminForms(true);
+              });
+      }
+
+      function disableAdminForms(disabled) {
+          const buttons = [
+              document.getElementById('teamSubmitBtn'),
+              document.getElementById('eventSubmitBtn')
+          ];
+          buttons.forEach(btn => {
+              if (btn) btn.disabled = disabled;
+          });
+      }
+
+      // Fetch data from Sheets API
+      function fetchData() {
+          checkDatabaseConnection();
+
+          if (!API_URL || !API_URL.startsWith("https://script.google.com/macros/s/")) {
+              console.warn("Please hardcode the Google Apps Script API URL inside the admin.html file.");
+              return;
+          }
+
+          // Load Team Members
+          const teamListBody = document.getElementById('teamListBody');
+          teamListBody.innerHTML = `<tr><td colspan="5" class="text-center py-4"><div class="spinner-border spinner-border-sm text-primary" role="status"></div> Loading...</td></tr>`;
+          
+          fetchWithJSONPFallback(API_URL, "getTeams")
+              .then(data => {
+                  teamListBody.innerHTML = '';
+                  if (data && data.length > 0) {
+                      data.forEach(member => {
+                          const tr = document.createElement('tr');
+                          tr.innerHTML = `
+                              <td><img src="${member.ImageUrl || 'https://placehold.co/50x50'}" alt="${member.Name}" class="rounded-circle object-fit-cover" width="40" height="40"></td>
+                              <td><strong>${member.Name}</strong></td>
+                              <td><span class="badge bg-secondary">${member.Role}</span></td>
+                              <td>${member.Phone || ''} / ${member.Whatsapp || ''}</td>
+                              <td>
+                                  <button class="btn btn-danger btn-sm" onclick="deleteItem('TeamMembers', '${member.ID}')">
+                                      <i class="bi bi-trash"></i> Delete
+                                  </button>
+                              </td>
+                          `;
+                          teamListBody.appendChild(tr);
+                      });
+                  } else {
+                      teamListBody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-4">No team members found in database.</td></tr>`;
+                  }
+              })
+              .catch(err => {
+                  console.error(err);
+                  teamListBody.innerHTML = `<tr><td colspan="5" class="text-center text-danger py-4">Error loading data. Check console logs.</td></tr>`;
+              });
+
+          // Load Events
+          const eventListBody = document.getElementById('eventListBody');
+          eventListBody.innerHTML = `<tr><td colspan="5" class="text-center py-4"><div class="spinner-border spinner-border-sm text-primary" role="status"></div> Loading...</td></tr>`;
+
+          fetchWithJSONPFallback(API_URL, "getEvents")
+              .then(data => {
+                  eventListBody.innerHTML = '';
+                  if (data && data.length > 0) {
+                      data.forEach(event => {
+                          const tr = document.createElement('tr');
+                          tr.innerHTML = `
+                              <td><img src="${event.ImageUrl || 'https://placehold.co/80x50'}" alt="${event.Title}" class="rounded object-fit-cover" width="60" height="40"></td>
+                              <td><strong>${event.Title}</strong> <span class="badge bg-info text-dark small">${event.Category || 'Event'}</span></td>
+                              <td>${event.Date || ''} <br><small class="text-muted">${event.Time || ''}</small></td>
+                              <td>${event.Location || ''}</td>
+                              <td>
+                                  <button class="btn btn-danger btn-sm" onclick="deleteItem('Events', '${event.ID}')">
+                                      <i class="bi bi-trash"></i> Delete
+                                  </button>
+                              </td>
+                          `;
+                          eventListBody.appendChild(tr);
+                      });
+                  } else {
+                      eventListBody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-4">No events found in database.</td></tr>`;
+                  }
+              })
+              .catch(err => {
+                  console.error(err);
+                  eventListBody.innerHTML = `<tr><td colspan="5" class="text-center text-danger py-4">Error loading data. Check console logs.</td></tr>`;
+              });
+
+          // Load Membership Applications
+          const applicationListBody = document.getElementById('applicationListBody');
+          applicationListBody.innerHTML = `<tr><td colspan="6" class="text-center py-4"><div class="spinner-border spinner-border-sm text-primary" role="status"></div> Loading...</td></tr>`;
+
+          fetchWithJSONPFallback(API_URL, "getMembership")
+              .then(data => {
+                  applicationListBody.innerHTML = '';
+                  if (data && data.length > 0) {
+                      data.forEach(app => {
+                          const tr = document.createElement('tr');
+                          tr.innerHTML = `
+                              <td><strong>${app.Name}</strong></td>
+                              <td>${app.Email || ''} <br><small class="text-muted">${app.Phone || ''} / ${app.Whatsapp || ''}</small></td>
+                              <td>${app.Company || ''} <br><small class="text-muted">${app.Industry || ''}</small></td>
+                              <td><span class="small text-muted" title="${app.Message || ''}">${app.Message ? app.Message.substring(0, 50) + (app.Message.length > 50 ? '...' : '') : ''}</span></td>
+                              <td><small>${app.Timestamp || ''}</small></td>
+                              <td>
+                                  <button class="btn btn-danger btn-sm" onclick="deleteItem('membership', '${app.ID}')">
+                                      <i class="bi bi-trash"></i> Delete
+                                  </button>
+                              </td>
+                          `;
+                          applicationListBody.appendChild(tr);
+                      });
+                  } else {
+                      applicationListBody.innerHTML = `<tr><td colspan="6" class="text-center text-muted py-4">No applications found in database.</td></tr>`;
+                  }
+              })
+              .catch(err => {
+                  console.error(err);
+                  applicationListBody.innerHTML = `<tr><td colspan="6" class="text-center text-danger py-4">Error loading data. Check console logs.</td></tr>`;
+              });
+
+          // Load Contact Queries
+          const contactListBody = document.getElementById('contactListBody');
+          contactListBody.innerHTML = `<tr><td colspan="5" class="text-center py-4"><div class="spinner-border spinner-border-sm text-primary" role="status"></div> Loading...</td></tr>`;
+
+          fetchWithJSONPFallback(API_URL, "getContacts")
+              .then(data => {
+                  contactListBody.innerHTML = '';
+                  if (data && data.length > 0) {
+                      data.forEach(query => {
+                          const tr = document.createElement('tr');
+                          tr.innerHTML = `
+                              <td><strong>${query.Name}</strong></td>
+                              <td>${query.Email || ''}</td>
+                              <td><span class="small text-muted" title="${query.Message || ''}">${query.Message ? query.Message.substring(0, 50) + (query.Message.length > 50 ? '...' : '') : ''}</span></td>
+                              <td><small>${query.Timestamp || ''}</small></td>
+                              <td>
+                                  <button class="btn btn-danger btn-sm" onclick="deleteItem('contact', '${query.ID}')">
+                                      <i class="bi bi-trash"></i> Delete
+                                  </button>
+                              </td>
+                          `;
+                          contactListBody.appendChild(tr);
+                      });
+                  } else {
+                      contactListBody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-4">No contact queries found in database.</td></tr>`;
+                  }
+              })
+              .catch(err => {
+                  console.error(err);
+                  contactListBody.innerHTML = `<tr><td colspan="5" class="text-center text-danger py-4">Error loading data. Check console logs.</td></tr>`;
+              });
+      }
+
+      // Add Team Member Submission
+      document.getElementById('teamForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (!API_URL || !API_URL.startsWith("https://script.google.com/macros/s/")) {
+              alert('Please hardcode the API URL in admin.html scripts first!');
+              return;
+          }
+
+          const btn = document.getElementById('teamSubmitBtn');
+          btn.disabled = true;
+          btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status"></span> Adding...`;
+
+          const rowData = {
+              "ID": Date.now().toString(),
+              "Name": document.getElementById('t_name').value,
+              "Role": document.getElementById('t_role').value,
+              "ImageUrl": document.getElementById('t_image').value,
+              "Bio": document.getElementById('t_bio').value,
+              "Phone": document.getElementById('t_phone').value,
+              "Whatsapp": document.getElementById('t_whatsapp').value
+          };
+
+          const payload = {
+              "action": "add",
+              "sheet": "TeamMembers",
+              "row": rowData
+          };
+
+          fetch(API_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'text/plain' },
+              body: JSON.stringify(payload)
+          })
+          .then(res => {
+              if (!res.ok) throw new Error("Network response was not ok");
+              return res.json();
+          })
+          .then(result => {
+              if (result.status === 'success') {
+                  alert(result.message || 'Team member added successfully!');
+                  document.getElementById('teamForm').reset();
+                  fetchData();
+              } else {
+                  alert('Error: ' + (result.message || 'Failed to add team member.'));
+              }
+          })
+          .catch(err => {
+              console.error(err);
+              alert('Failed to add team member. Verify API connectivity and Google Sheets permissions.');
+          })
+          .finally(() => {
+              btn.disabled = false;
+              btn.innerHTML = "Add Member";
+          });
+      });
+
+      // Add Event Submission
+      document.getElementById('eventForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (!API_URL || !API_URL.startsWith("https://script.google.com/macros/s/")) {
+              alert('Please hardcode the API URL in admin.html scripts first!');
+              return;
+          }
+
+          const btn = document.getElementById('eventSubmitBtn');
+          btn.disabled = true;
+          btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status"></span> Adding...`;
+
+          const rowData = {
+              "ID": Date.now().toString(),
+              "Title": document.getElementById('e_title').value,
+              "Category": document.getElementById('e_category').value,
+              "Date": document.getElementById('e_date').value,
+              "Time": document.getElementById('e_time').value,
+              "Location": document.getElementById('e_location').value,
+              "ImageUrl": document.getElementById('e_image').value,
+              "ActionUrl": document.getElementById('e_action_url').value,
+              "Description": document.getElementById('e_description').value
+          };
+
+          const payload = {
+              "action": "add",
+              "sheet": "Events",
+              "row": rowData
+          };
+
+          fetch(API_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'text/plain' },
+              body: JSON.stringify(payload)
+          })
+          .then(res => {
+              if (!res.ok) throw new Error("Network response was not ok");
+              return res.json();
+          })
+          .then(result => {
+              if (result.status === 'success') {
+                  alert(result.message || 'Event added successfully!');
+                  document.getElementById('eventForm').reset();
+                  fetchData();
+              } else {
+                  alert('Error: ' + (result.message || 'Failed to add event.'));
+              }
+          })
+          .catch(err => {
+              console.error(err);
+              alert('Failed to add event. Verify API connectivity and Google Sheets permissions.');
+          })
+          .finally(() => {
+              btn.disabled = false;
+              btn.innerHTML = "Add Event";
+          });
+      });
+
+      // Delete Item Handler
+      window.deleteItem = function(sheetName, id) {
+          if (!API_URL || !API_URL.startsWith("https://script.google.com/macros/s/")) return;
+          if (!confirm('Are you sure you want to delete this item?')) return;
+
+          const payload = {
+              "action": "delete",
+              "sheet": sheetName,
+              "id": id
+          };
+
+          fetch(API_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'text/plain' },
+              body: JSON.stringify(payload)
+          })
+          .then(res => {
+              if (!res.ok) throw new Error("Network response was not ok");
+              return res.json();
+          })
+          .then(result => {
+              if (result.status === 'success') {
+                  alert(result.message || 'Item deleted successfully!');
+                  fetchData();
+              } else {
+                  alert('Error: ' + (result.message || 'Failed to delete item.'));
+              }
+          })
+          .catch(err => {
+              console.error(err);
+              alert('Failed to delete item. Verify API connectivity and Google Sheets permissions.');
+          });
+      }
+  </script>
+</body>
+</html>

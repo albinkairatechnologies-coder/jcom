@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mission & Vision</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/icon.png">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+
+
+<style>
+        body { overflow-x: hidden; background: radial-gradient(circle at top, #3a3a3a 0%, #1f1f1f 70%); color: #fff; }
+
+
+/* SECTION */
+.mission-vision-section { padding:80px 0; background: transparent; }
+
+/* WRAPPER Ã¢â‚¬â€œ center on monitor */
+.mv-wrapper{
+    max-width:900px;
+    margin:0 auto;
+}
+
+/* TITLE */
+.label-title{
+    font-size:28px;
+    font-weight:700;
+}
+
+/* TEXT */
+.label-text{
+    font-size:17px;
+    color: #dcdcdc;
+    line-height:1.6;
+}
+
+/* ROW SPACING */
+.mv-row{
+    margin-bottom:35px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .label-title{
+        font-size:24px;
+    }
+    .mission-vision-section{
+        padding:60px 0;
+    }
+}
+
+
+
+/*************/
+
+/* Benefits Section styles moved to memberships.html */
+
+/* ================= TITLE ================= */
+.diff-label{
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#777;
+    margin-bottom:14px;
+}
+
+.diff-title{
+    font-size:38px;
+    font-weight:700;
+    line-height:1.35;
+    max-width:1000px;
+}
+
+/* ================= TEXT ================= */
+.diff-text{
+    font-size:15.5px;
+    line-height:1.7;
+    color: #fff;
+    max-width:400px;
+}
+
+/* ================= VIDEO ================= */
+.video-wrapper iframe{
+    width:100%;
+    height:360px;
+    border-radius:4px;
+}
+
+/* ================= GAP CONTROL ================= */
+.second-row{
+    align-items:center;
+}
+
+/* MONITOR / LARGE SCREEN GAP REDUCE */
+@media (min-width:1200px){
+    .difference-section .container{
+        max-width:1100px; /* center gap reduce */
+    }
+
+    .second-row{
+        --bs-gutter-x: 2rem; /* reduce space between text & video */
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:992px){
+    .diff-title{
+        font-size:30px;
+    }
+    .diff-text{
+        max-width:100%;
+    }
+}
+
+@media(max-width:768px){
+    .difference-section{
+        padding:70px 0;
+    }
+    .diff-title{
+        font-size:26px;
+    }
+    .video-wrapper iframe{
+        height:240px;
+    }
+}
+
+/***********/
+
+/* Fourth Section */
+
+/* SECTION */
+.member-section{
+    padding:80px 0;
+    position: relative;
+    top:-160px;
+}
+
+/* TITLE */
+.section-title{
+    text-align:center;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:50px;
+}
+
+/* GRID */
+.member-grid{
+    border-top:1px solid #dcdcdc;
+    border-left:1px solid #dcdcdc;
+}
+
+.member-item{
+    border-right:1px solid #dcdcdc;
+    border-bottom:1px solid #dcdcdc;
+    padding:40px 20px;
+    text-align:center;
+    background: transparent;
+    transition:all .4s ease;
+}
+
+/* LOGO */
+.member-item img{
+    max-width:140px;
+    max-height:60px;
+    filter:grayscale(100%);
+    opacity:.7;
+    transition:all .4s ease;
+}
+
+/* HOVER EFFECT */
+.member-item:hover img{
+    filter:grayscale(0%);
+    opacity:1;
+    transform:scale(1.12);
+}
+
+/* BUTTON */
+.member-btn{
+    display:inline-block;
+    margin-top:45px;
+    padding:12px 32px;
+    background:linear-gradient(90deg,#1da1f2,#1da1f2);
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    border:none;
+    text-decoration:none;
+    transition:.4s;
+}
+
+.member-btn:hover{
+    color:#fff;
+    opacity:.85;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .member-item{
+        padding:30px 15px;
+    }
+    .member-item img{
+        max-width:120px;
+    }
+}
+
+/***************/
+
+/* Premium Static Mission & Vision Section */
+.static-mv-section {
+    padding: 100px 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.mv-card {
+    background: transparent; /* Subtle off-white/cream */
+    padding: 40px;
+    border-radius: 30px;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.mv-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.mv-label {
+    font-family: 'Inter', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.mv-label i {
+    font-size: 2rem;
+    color: #1da1f2;
+}
+
+.mv-desc {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 0;
+}
+
+.mv-img-frame {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+
+.mv-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Background Decorative Circles */
+.mv-decor-circle {
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    background: rgba(142,31,52, 0.03);
+    pointer-events: none;
+}
+
+.circle-top-left {
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    left: -200px;
+    border: 80px solid rgba(0,0,0,0.02);
+}
+
+@media (max-width: 991px) {
+    .mv-label { font-size: 2.2rem; }
+    .static-mv-section { padding: 60px 0; }
+}
+
+
+/* breadcrumbs start */
+
+        /* Hero Section */
+        .bsr-hero-wrapper {
+            position: relative;
+            width: 100%;
+            height: 45vh;
+            min-height: 350px;
+            overflow: hidden;
+            margin-top: 100px;
+        }
+
+        .bsr-hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 75, 85, 0.85) 0%, rgba(0, 95, 105, 0.75) 100%),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        .bsr-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 60, 70, 0.3);
+            z-index: 2;
+        }
+
+        /* Navigation */
+        .bsr-navbar-custom {
+            position: relative;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            background: transparent;
+        }
+
+        .bsr-navbar-brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .bsr-logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .bsr-logo-dots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3px;
+            padding: 8px;
+        }
+
+        .bsr-dot-item {
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .bsr-logo-text {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .bsr-nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bsr-nav-link-item {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bsr-nav-link-item:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .bsr-nav-link-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .bsr-nav-link-item:hover::after {
+            width: 100%;
+        }
+
+        .bsr-nav-dropdown-toggle::after {
+            content: 'Ã¢â€“Â¼';
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+
+        .bsr-top-menu-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bsr-top-link-item {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .bsr-top-link-item:hover {
+            opacity: 0.8;
+        }
+
+        .bsr-search-icon-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .bsr-search-icon-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Content */
+        .bsr-hero-content-wrapper {
+            position: relative;
+            z-index: 10;
+            height: 45vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .bsr-hero-text-container {
+            max-width: 800px;
+        }
+
+
+
+        .bsr-hero-main-title {
+            font-size: 51px;
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+
+        .bsr-hero-title-line {
+            display: block;
+        }
+
+        /* Mobile Styles */
+        .bsr-mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1199px) {
+            .bsr-nav-menu {
+                gap: 1.5rem;
+            }
+
+            .bsr-hero-main-title {
+                font-size: 3.5rem ;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .bsr-nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 60, 70, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+
+            .bsr-nav-menu.bsr-menu-active {
+                display: flex;
+            }
+
+            .bsr-mobile-menu-toggle {
+                display: block;
+            }
+
+            .bsr-hero-main-title {
+                font-size: 2rem;
+            }
+
+            .bsr-top-menu-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bsr-hero-wrapper {
+                height: 40vh;
+                min-height: 300px;
+            }
+
+            .bsr-hero-content-wrapper {
+                height: 40vh;
+            }
+
+            .bsr-hero-main-title {
+                font-size: 2.5rem;
+            }
+
+
+            .bsr-logo-text {
+                font-size: 2rem;
+            }
+
+            .bsr-nav-link-item {
+                font-size: 1.1rem;
+            }
+
+            .bsr-top-menu-links {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .bsr-hero-wrapper {
+                height: 35vh;
+                min-height: 250px;
+            }
+
+            .bsr-hero-content-wrapper {
+                height: 35vh;
+            }
+
+            .bsr-hero-main-title {
+                font-size: 1.5rem;
+            }
+
+
+            .bsr-logo-text {
+                font-size: 1.8rem;
+            }
+
+            .bsr-logo-circle {
+                width: 40px;
+                height: 40px;
+            }
+
+            .bsr-navbar-custom {
+                padding: 1rem 0;
+            }
+
+            .bsr-top-menu-links {
+                gap: 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* finished */
+
+/* JCOM Tables Section V2 (Screenshot Redesign) */
+.tables-section-v2 {
+    background: #ffffff;
+    padding: 120px 0;
+    color: #111;
+    position: relative;
+    overflow: hidden;
+}
+
+.tables-v2-title {
+    font-size: 4.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: #111;
+    letter-spacing: -1.5px;
+}
+
+.tables-v2-desc {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 45px;
+    max-width: 650px;
+}
+
+.tables-v2-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tables-v2-list li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.check-circle {
+    width: 28px;
+    height: 28px;
+    background: #1da1f2;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.tables-v2-img-frame {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+}
+
+.tables-v2-img-frame img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 991px) {
+    .tables-v2-title { font-size: 2.8rem; }
+    .tables-section-v2 { padding: 80px 0; }
+    .tables-v2-img-frame { margin-top: 50px; }
+}
+
+
+        /* ===== OUR CLIENTS SECTION (LIGHT THEME) ===== */
+        .clients-section-light {
+            background: #ffffff; /* pure white background */
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Top Left Concentric Circles */
+        .clients-section-light::before {
+            content: "";
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 164, 239, 0.15);
+            box-shadow: 
+                0 0 0 40px rgba(0, 164, 239, 0.05),
+                0 0 0 80px rgba(0, 164, 239, 0.05),
+                0 0 0 120px rgba(0, 164, 239, 0.05);
+            z-index: 0;
+        }
+
+        /* Top Right Blurred Gradient */
+        .clients-section-light::after {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: 15%;
+            width: 350px;
+            height: 350px;
+            background: #00a4ef;
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: 0;
+            border-radius: 50%;
+        }
+
+        /* Bottom Left Waves using inline SVG */
+        .clients-bg-waves {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 600px;
+            height: 400px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Cpath fill='none' stroke='%2300a4ef' stroke-width='1.5' stroke-opacity='0.3' d='M-100,300 C100,400 300,100 500,200 C700,300 900,100 1100,200' /%3E%3Cpath fill='none' stroke='%2300a4ef' stroke-width='1.5' stroke-opacity='0.3' d='M-100,320 C100,420 300,120 500,220 C700,320 900,120 1100,220' /%3E%3Cpath fill='none' stroke='%2300a4ef' stroke-width='1.5' stroke-opacity='0.3' d='M-100,340 C100,440 300,140 500,240 C700,340 900,140 1100,240' /%3E%3Cpath fill='none' stroke='%2300a4ef' stroke-width='1.5' stroke-opacity='0.3' d='M-100,360 C100,460 300,160 500,260 C700,360 900,160 1100,260' /%3E%3Cpath fill='none' stroke='%2300a4ef' stroke-width='1.5' stroke-opacity='0.3' d='M-100,380 C100,480 300,180 500,280 C700,380 900,180 1100,280' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: 0;
+        }
+
+        /* Dots grids */
+        .clients-bg-decor {
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            width: 150px;
+            height: 100px;
+            background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
+            background-size: 20px 20px;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .clients-bg-decor.bottom-right {
+            top: auto;
+            bottom: 10%;
+            left: auto;
+            right: 25%;
+        }
+
+        .clients-central-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .clients-header-center {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .clients-label-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+            font-weight: 800;
+            color: #00a4ef;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .clients-label-light::before, .clients-label-light::after {
+            content: "";
+            width: 40px;
+            height: 2px;
+            background: #00a4ef;
+        }
+
+        .clients-title-light {
+            font-size: 42px;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .clients-title-light span {
+            color: #00a4ef;
+        }
+
+        .clients-desc-light {
+            font-size: 16px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .client-card-light {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+            height: 130px;
+            transition: all 0.3s ease;
+        }
+
+        .client-card-light:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 164, 239, 0.08);
+            border-color: rgba(0, 164, 239, 0.1);
+        }
+
+        .client-card-light img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            opacity: 1; /* Removed the previous dark mode grayscale opacity */
+        }
+
+        .vertical-clients-label-light {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 120px;
+            font-weight: 900;
+            color: transparent;
+            /* Making the stroke darker as requested */
+            -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.15);
+            letter-spacing: 20px;
+            pointer-events: none;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            white-space: nowrap;
+            z-index: 0;
+            user-select: none;
+        }
+
+        @media (max-width: 991px) {
+            .clients-grid { grid-template-columns: repeat(2, 1fr); }
+            .vertical-clients-label-light { display: none; }
+            .clients-title-light { font-size: 36px; }
+        }
+        @media (max-width: 576px) {
+            .clients-grid { grid-template-columns: repeat(1, 1fr); }
+            .clients-title-light { font-size: 30px; }
+        }
+        /* Table Types Section (Rotating Border Cards) */
+        .table-types-section {
+            background: transparent; /* Slightly darker than previous section for contrast */
+            padding: 80px 0 120px 0;
+            position: relative;
+        }
+
+        .types-main-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .table-type-card-wrap {
+            position: relative;
+            padding: 2px; /* Border thickness */
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            z-index: 1;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .table-type-card-wrap:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Rotating Border Gradient */
+        .table-type-card-wrap::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, #ffffff, #ffffff, transparent);
+            animation: rotateBorder 4s linear infinite;
+            z-index: -2;
+        }
+
+        /* Inner Card Background */
+        .table-type-card-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 3px; /* Slightly thicker for better effect */
+            background: #1f1f1f; /* Solid Card background to block the shine through */
+            border-radius: 17px; /* Adjusted radius */
+            z-index: -1;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .table-type-card {
+            padding: 40px 30px;
+            height: 100%;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .table-type-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .table-type-desc {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #dcdcdc;
+            margin: 0;
+        }
+        /* 4 Weeks Meetings Timeline Section */
+        .meetings-timeline-section {
+            background: #ffffff;
+            padding: 100px 0;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .meetings-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+        }
+
+        .timeline-wrapper {
+            position: relative;
+        }
+
+        .timeline-horizontal-line {
+            position: absolute;
+            top: 0;
+            left: 12.5%;
+            right: 12.5%;
+            height: 1px;
+            border-top: 1px dashed #1da1f2;
+            z-index: -1;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .timeline-vertical-line {
+            width: 1px;
+            height: 35px;
+            border-left: 1px dashed #1da1f2;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover .timeline-vertical-line {
+            border-left: 1px solid #111;
+        }
+
+        .timeline-circle {
+            width: 40px;
+            height: 40px;
+            background: #1da1f2; /* Yellow color from screenshot */
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 15px;
+            margin-bottom: 35px;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover .timeline-circle {
+            background: #111;
+            color: #fff;
+        }
+
+        .timeline-image-wrap {
+            margin-bottom: 30px;
+        }
+
+        .timeline-img {
+            width: 210px;
+            height: 210px;
+            object-fit: cover;
+            /* Flower simple SVG mask */
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 C60 0 65 15 75 25 C85 15 100 20 100 35 C100 45 85 50 85 50 C85 50 100 55 100 65 C100 80 85 85 75 75 C65 85 60 100 50 100 C40 100 35 85 25 75 C15 85 0 80 0 65 C0 55 15 50 15 50 C15 50 0 45 0 35 C0 20 15 15 25 25 C35 15 40 0 50 0 Z'/%3E%3C/svg%3E");
+            -webkit-mask-size: 100% 100%;
+            -webkit-mask-repeat: no-repeat;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 C60 0 65 15 75 25 C85 15 100 20 100 35 C100 45 85 50 85 50 C85 50 100 55 100 65 C100 80 85 85 75 75 C65 85 60 100 50 100 C40 100 35 85 25 75 C15 85 0 80 0 65 C0 55 15 50 15 50 C15 50 0 45 0 35 C0 20 15 15 25 25 C35 15 40 0 50 0 Z'/%3E%3C/svg%3E");
+            mask-size: 100% 100%;
+            mask-repeat: no-repeat;
+            transition: transform 0.4s ease;
+        }
+
+        /* 3D Flip Mechanics - Constrained to Flower Shape */
+        .timeline-flip-box {
+            perspective: 1000px;
+            width: 210px;
+            height: 210px;
+            margin: 0 auto 35px auto;
+        }
+
+        .timeline-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .timeline-item:hover .timeline-flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .timeline-item:hover .timeline-flip-front img {
+            transform: scale(1.08); /* Zoom on hover still works */
+        }
+
+        .timeline-flip-front, .timeline-flip-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            
+            /* Apply flower mask directly to both flipping sides */
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 C60 0 65 15 75 25 C85 15 100 20 100 35 C100 45 85 50 85 50 C85 50 100 55 100 65 C100 80 85 85 75 75 C65 85 60 100 50 100 C40 100 35 85 25 75 C15 85 0 80 0 65 C0 55 15 50 15 50 C15 50 0 45 0 35 C0 20 15 15 25 25 C35 15 40 0 50 0 Z'/%3E%3C/svg%3E");
+            -webkit-mask-size: 100% 100%;
+            -webkit-mask-repeat: no-repeat;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 C60 0 65 15 75 25 C85 15 100 20 100 35 C100 45 85 50 85 50 C85 50 100 55 100 65 C100 80 85 85 75 75 C65 85 60 100 50 100 C40 100 35 85 25 75 C15 85 0 80 0 65 C0 55 15 50 15 50 C15 50 0 45 0 35 C0 20 15 15 25 25 C35 15 40 0 50 0 Z'/%3E%3C/svg%3E");
+            mask-size: 100% 100%;
+            mask-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .timeline-flip-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .timeline-flip-back {
+            transform: rotateY(180deg);
+            background: transparent;
+        }
+
+        .timeline-flip-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .timeline-item-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 12px;
+            line-height: 1.35;
+        }
+
+        .timeline-item-desc {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 15px;
+        }
+
+        .creative-meet-box {
+            margin-top: 60px;
+            padding: 25px 0 0 0;
+            border-top: 1px dotted rgba(0,0,0,0.1);
+            color: #555;
+            font-size: 1rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .creative-meet-box strong {
+            color: #1da1f2;
+            font-style: normal;
+        }
+
+        @media (max-width: 991px) {
+            .timeline-horizontal-line {
+                display: none;
+            }
+            .timeline-vertical-line {
+                display: none;
+            }
+            .timeline-item {
+                margin-bottom: 50px;
+            }
+            .timeline-circle {
+                margin-bottom: 25px;
+            }
+            .meetings-title { font-size: 2.2rem; }
+        }
+
+/*************/
+</style>
+</head>
+
+<body>
+<div> 
+    <header class="fixed-header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container navbar-pill">
+      <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration: none;">
+        <img src="images/logo1.png" alt="Logo Icon" style="height: 65px; margin-right: 10px;">
+        <span style="font-size: 28px; font-weight: 800; color: #1da1f2; letter-spacing: 1px;"></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="memberships.html">Memberships</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+            <!-- Removed navbar-right as requested -->
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- finished -->
+<section class="page-header-banner">
+    <div class="container">
+        <h1 class="page-header-title" data-aos="fade-up">About Us</h1>
+        <div class="page-breadcrumbs" data-aos="fade-up" data-aos-delay="200">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <span class="current">About Us</span>
+        </div>
+    </div>
+</section>
+
+
+  <!-- bradcrumbs finished -->
+
+
+
+
+
+
+
+<!-- ===== STATIC MISSION & VISION SECTION ===== -->
+<section class="static-mv-section" id="mvTrigger">
+    <!-- Decorative Shapes -->
+    <div class="mv-decor-circle circle-top-left"></div>
+
+    <div class="container">
+
+        <div class="row g-4">
+            <!-- Vision Card -->
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="mv-card">
+                    <h2 class="mv-label"><i class="bi bi-eye"></i> Vision</h2>
+                    <p class="mv-desc">
+                        Our vision is to work with business to create a just and sustainable world 
+                        in which all people can thrive on a healthy planet.
+                    </p>
+                </div>
+            </div>
+            <!-- Mission Card -->
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="mv-card">
+                    <h2 class="mv-label"><i class="bi bi-bullseye"></i> Mission</h2>
+                    <p class="mv-desc">
+                        We are committed to creating an ecosystem that supports the growth of 
+                        sustainable business models with innovative resources and global networks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end-->
+
+
+<!-- Benefits section moved to memberships.html -->
+
+<!-- ===== JCOM TABLES SECTION V2 ===== -->
+<section class="tables-section-v2">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Side: Content -->
+            <div class="col-lg-7" data-aos="fade-right">
+                <h2 class="tables-v2-title">JCOM Tables: Unified Business Groups</h2>
+                <p class="tables-v2-desc">
+                    The core organizational unit of JCOM, designed to empower individual business groups with professional structure and global connectivity.
+                </p>
+
+                <ul class="tables-v2-list">
+                    <li>
+                        <div class="check-circle"><i class="bi bi-check"></i></div>
+                        One Individual business group in a Town/City is called as "Table".
+                    </li>
+                    <li>
+                        <div class="check-circle"><i class="bi bi-check"></i></div>
+                        One Town/City may have any number of "Table's.
+                    </li>
+                    <li>
+                        <div class="check-circle"><i class="bi bi-check"></i></div>
+                        Tables are not LO specific, When "Table" is created anyone from any LO can join the "Table"
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Side: Image -->
+            <div class="col-lg-5" data-aos="fade-left">
+                <div class="tables-v2-img-frame">
+                    <img src="images/meet.jpg" alt="JCOM Partnership">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TABLE TYPES SECTION ===== -->
+<section class="table-types-section">
+    <div class="container">
+        <div class="row mb-5 text-center">
+            <div class="col-12" data-aos="fade-up">
+                <h2 class="types-main-title">4 Different Types of Tables</h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                <div class="table-type-card-wrap">
+                    <div class="table-type-card">
+                        <h3 class="table-type-title">Live Table</h3>
+                        <p class="table-type-desc">Members of the same area will meet physically every week on a fixed day.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="table-type-card-wrap">
+                    <div class="table-type-card">
+                        <h3 class="table-type-title">Virtual Table</h3>
+                        <p class="table-type-desc">Members anywhere from same country will meet virtually every week on a fixed day.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="table-type-card-wrap">
+                    <div class="table-type-card">
+                        <h3 class="table-type-title">Association Table</h3>
+                        <p class="table-type-desc">Members of the same type of business area will meet physically once in a fortnight on a fixed day.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="table-type-card-wrap">
+                    <div class="table-type-card">
+                        <h3 class="table-type-title">International Virtual Table</h3>
+                        <p class="table-type-desc">Members anywhere from the world will meet virtually every week on a fixed day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 4 WEEKS MEETINGS TIMELINE SECTION ===== -->
+<section class="meetings-timeline-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12" data-aos="fade-up">
+                <h2 class="meetings-title">4 weeks 4 different type of Table meetings</h2>
+            </div>
+        </div>
+
+        <div class="timeline-wrapper">
+            <!-- connecting line -->
+            <div class="timeline-horizontal-line d-none d-lg-block"></div>
+            
+            <div class="row g-4 justify-content-center">
+                
+                <!-- Step 01 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                    <div class="timeline-item">
+                        <div class="timeline-vertical-line d-none d-lg-block"></div>
+                        <div class="timeline-circle">01</div>
+                        
+                        <!-- Flower Only Flip Box -->
+                        <div class="timeline-flip-box">
+                            <div class="timeline-flip-inner">
+                                <div class="timeline-flip-front">
+                                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2074" alt="Growth Plan">
+                                </div>
+                                <div class="timeline-flip-back">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015" alt="Growth Charts">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text stays static below -->
+                        <h4 class="timeline-item-title">Growth plan and Growth Call Meet</h4>
+                        <p class="timeline-item-desc">Members will give and seek for business connections to each other as per need of other members</p>
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-item">
+                        <div class="timeline-vertical-line d-none d-lg-block"></div>
+                        <div class="timeline-circle">02</div>
+                        
+                        <div class="timeline-flip-box">
+                            <div class="timeline-flip-inner">
+                                <div class="timeline-flip-front">
+                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070" alt="Solution Board">
+                                </div>
+                                <div class="timeline-flip-back">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070" alt="Team Brainstorming">
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="timeline-item-title">Solution Board meet</h4>
+                        <p class="timeline-item-desc">Any 5 business challenges of members will be discussed, and solutions board will provide solutions</p>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-item">
+                        <div class="timeline-vertical-line d-none d-lg-block"></div>
+                        <div class="timeline-circle">03</div>
+                        
+                        <div class="timeline-flip-box">
+                            <div class="timeline-flip-inner">
+                                <div class="timeline-flip-front">
+                                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070" alt="Learning Meet">
+                                </div>
+                                <div class="timeline-flip-back">
+                                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070" alt="Learning Library">
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="timeline-item-title">Learning meet</h4>
+                        <p class="timeline-item-desc">Audio based learning meeting with subject expert/consultant to sharpen skills and gain knowledge</p>
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-item">
+                        <div class="timeline-vertical-line d-none d-lg-block"></div>
+                        <div class="timeline-circle">04</div>
+                        
+                        <div class="timeline-flip-box">
+                            <div class="timeline-flip-inner">
+                                <div class="timeline-flip-front">
+                                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070" alt="Cross Business">
+                                </div>
+                                <div class="timeline-flip-back">
+                                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=2070" alt="Handshake Deal">
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="timeline-item-title">Cross Business Meet</h4>
+                        <p class="timeline-item-desc">It will be joint meet with other JCOM Table to explore the opportunity for more business connections</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto" data-aos="fade-up" data-aos-delay="400">
+                <div class="creative-meet-box">
+                    <strong>Creative/Innovative Meet:</strong> when 5th weeks are there; Administrative board will decide the type of meeting with innovative ideas. Whenever National JCOM guidelines are given table will conduct meeting accordingly.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="clients-section-light">
+    <!-- Decorative Lines Background -->
+    <div class="clients-bg-waves"></div>
+    <div class="clients-bg-decor"></div>
+    <div class="clients-bg-decor bottom-right"></div>
+
+    <div class="vertical-clients-label-light">CLIENTS</div>
+    
+    <div class="clients-central-wrap">
+        <div class="clients-header-center" data-aos="fade-up">
+            <div class="clients-label-light">OUR CLIENTS</div>
+            <h2 class="clients-title-light">Trusted By <span>Leading</span> Organizations</h2>
+            <p class="clients-desc-light">We are proud to work with forward-thinking partners across industries and sectors.</p>
+        </div>
+        
+        <div class="clients-grid">
+            <div class="client-card-light" data-aos="fade-up" data-aos-delay="0">
+                <img src="logo/Capture.PNG" alt="Client Logo">
+            </div>
+            <div class="client-card-light" data-aos="fade-up" data-aos-delay="100">
+                <img src="logo/Capture1.PNG" alt="Client Logo">
+            </div>
+            <div class="client-card-light" data-aos="fade-up" data-aos-delay="200">
+                <img src="logo/Capture2.PNG" alt="Client Logo">
+            </div>
+            <div class="client-card-light" data-aos="fade-up" data-aos-delay="300">
+                <img src="logo/Capture3.PNG" alt="Client Logo">
+            </div>
+            <div class="client-card-light" data-aos="fade-up" data-aos-delay="400">
+                <img src="logo/Capture4.PNG" alt="Client Logo">
+            </div>
+            <div class="client-card-light" data-aos="fade-up" data-aos-delay="500">
+                <img src="logo/Capture5.PNG" alt="Client Logo">
+            </div>
+            <div class="client-card-light" data-aos="fade-up" data-aos-delay="600">
+                <img src="logo/Capture6.PNG" alt="Client Logo">
+            </div>
+            <div class="client-card-light" data-aos="fade-up" data-aos-delay="700">
+                <img src="logo/Capture7.PNG" alt="Client Logo">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- fourth end -->
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <div class="newsletter-content" data-aos="fade-right">
+                <p class="newsletter-label">Subscribe Newsletter</p>
+                <h2 class="newsletter-title">Stay Updated with the Latest News!</h2>
+            </div>
+            
+            <form class="newsletter-form-wrapper" data-aos="fade-left" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Enter Email Address" required id="newsletterEmail">
+                <button type="submit" class="newsletter-btn">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+ <!-- Footer -->
+    <footer class="footer-jcom">
+      <div class="container">
+        <div class="row g-4 footer-top">
+          <!-- BRAND -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-logo d-flex align-items-center mb-3">
+              <img src="images/logo1.png" alt="JCOM Logo" style="max-height: 60px;">
+            </div>
+            <p class="footer-desc">
+              JCOM is a dynamic leadership and business development platform empowering individuals to grow personally, professionally, and socially.
+            </p>
+            <div class="social-links mt-3">
+              <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <!-- QUICK LINKS -->
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-title">Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- RESOURCES -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="#">Events & Workshops</a></li>
+              <li><a href="#">Business Networking</a></li>
+              <li><a href="#">Leadership Programs</a></li>
+              <li><a href="#">Community Service</a></li>
+            </ul>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Contact Us</h5>
+            <ul class="footer-contact">
+              <li><i class="bi bi-geo-alt-fill"></i> JCOM Headquarters, India</li>
+              <li><i class="bi bi-envelope-fill"></i> info@jcom.org</li>
+              <li><i class="bi bi-telephone-fill"></i> +91 98765 43210</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom text-center">
+          <p class="mb-0">© 2026 JCOM. All rights reserved.</p>
+        </div>
+      </div>
+    </footer><!-- fifth end -->
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS -->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration:900,
+  once:true
+});
+
+// Newsletter Form Submission Handler
+const newsletterForm = document.getElementById('newsletterForm');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        alert(`Thank you for subscribing with: ${email}`);
+        newsletterForm.reset();
+    });
+}
+
+
+    // Handle header scroll & auto active nav link highlights
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.fixed-header');
+      if (header) {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+
+</script>
+
+</body>
+</html>
+
+
+
+
+

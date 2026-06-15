@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Events - JCOM Zone 18</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  
+  <style>
+    /* Premium Event Page Styles */
+    .event-card-upcoming {
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        background: #ffffff;
+    }
+    .event-card-upcoming:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 164, 239, 0.15) !important;
+        border-color: rgba(0, 164, 239, 0.3) !important;
+    }
+    .event-card-completed {
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        background: #ffffff;
+    }
+    .event-card-completed:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+    }
+    .event-img {
+        transition: transform 0.5s ease;
+    }
+    .event-card-upcoming:hover .event-img,
+    .event-card-completed:hover .event-img {
+        transform: scale(1.05);
+    }
+    
+    /* Category Badge Gradient Styling */
+    .badge-summit {
+        background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+        color: #fff !important;
+    }
+    .badge-expo {
+        background: linear-gradient(135deg, #581c87, #a855f7) !important;
+        color: #fff !important;
+    }
+    .badge-workshop {
+        background: linear-gradient(135deg, #064e3b, #10b981) !important;
+        color: #fff !important;
+    }
+    .badge-networking {
+        background: linear-gradient(135deg, #7c2d12, #f97316) !important;
+        color: #fff !important;
+    }
+    .badge-awards {
+        background: linear-gradient(135deg, #78350f, #eab308) !important;
+        color: #fff !important;
+    }
+    
+    /* Section Separators */
+    .section-divider {
+        position: relative;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1) 50%, transparent);
+        margin: 4rem 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / NAVIGATION -->
+  <header class="fixed-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container navbar-pill">
+        <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration: none;">
+          <img src="images/logo1.png" alt="Logo Icon" style="height: 65px; margin-right: 10px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="memberships.html">Memberships</a></li>
+            <li class="nav-item"><a class="nav-link active" href="events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header-banner">
+      <div class="container">
+          <h1 class="page-header-title" >JCOM ZONE 18 EVENTS</h1>  
+      </div>
+  </section>
+
+  <!-- EVENTS MAIN CONTAINER -->
+  <div class="container" style="margin-top: 50px; min-height: 60vh;">
+    
+    <!-- UPCOMING EVENTS SECTION -->
+    <div class="d-flex justify-content-between align-items-end mb-4 border-bottom pb-3">
+        <h2 class="fw-bold m-0" style="color: #0f172a;" >Upcoming Events</h2>
+        <span class="badge bg-primary px-3 py-2 rounded-pill fs-6" id="upcomingBadge" >3 Events</span>
+    </div>
+
+    <!-- Container for dynamic or static upcoming events -->
+    <div class="row g-4 mb-5" id="upcoming-events-container">
+        
+        <!-- Default Upcoming Event 1 -->
+        <div class="col-lg-12" >
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden event-card-upcoming">
+                <div class="row g-0">
+                    <div class="col-md-4 position-relative">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=80" class="img-fluid h-100 w-100 object-fit-cover event-img" style="min-height: 250px;" alt="JCOM Zone 18 Business Leadership Summit">
+                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm badge-summit">Summit</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body p-4 d-flex flex-column h-100">
+                            <div class="d-flex align-items-center text-primary mb-2 fw-semibold">
+                                <i class="bi bi-calendar3 me-2"></i> Oct 18, 2026 | 09:30 AM - 05:30 PM
+                            </div>
+                            <h4 class="card-title fw-bold text-dark mb-3">JCOM Zone 18 Business Leadership Summit 2026</h4>
+                            <p class="card-text text-muted mb-4">A high-impact summit featuring national business coaches, trade networking sessions, and panels on scaling businesses, digital transformation, and investment strategies.</p>
+                            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-auto pt-3 border-top">
+                                <div class="text-muted small">
+                                    <i class="bi bi-geo-alt-fill me-2 text-danger"></i> Zone 18 Convention Centre, Chennai
+                                </div>
+                                <a href="contact.html" class="btn btn-primary px-4 rounded-pill btn-sm fw-bold">Register Now <i class="bi bi-arrow-right-short ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Default Upcoming Event 2 -->
+        <div class="col-lg-12"  >
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden event-card-upcoming">
+                <div class="row g-0">
+                    <div class="col-md-4 position-relative">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&auto=format&fit=crop&q=80" class="img-fluid h-100 w-100 object-fit-cover event-img" style="min-height: 250px;" alt="JCOM Zone 18 B2B Expo & Trade Fair">
+                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm badge-expo">Trade Expo</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body p-4 d-flex flex-column h-100">
+                            <div class="d-flex align-items-center text-primary mb-2 fw-semibold">
+                                <i class="bi bi-calendar3 me-2"></i> Nov 12, 2026 | 10:00 AM - 08:00 PM
+                            </div>
+                            <h4 class="card-title fw-bold text-dark mb-3">JCOM Zone 18 B2B Expo & Trade Fair</h4>
+                            <p class="card-text text-muted mb-4">Exhibit your business products, connect with potential distributors, and build franchise connections with over 500+ delegates from Zone 18 tables.</p>
+                            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-auto pt-3 border-top">
+                                <div class="text-muted small">
+                                    <i class="bi bi-geo-alt-fill me-2 text-danger"></i> Grand Royal Palace Hall, Madurai
+                                </div>
+                                <a href="contact.html" class="btn btn-primary px-4 rounded-pill btn-sm fw-bold">Register Now <i class="bi bi-arrow-right-short ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Default Upcoming Event 3 -->
+        <div class="col-lg-12"  >
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden event-card-upcoming">
+                <div class="row g-0">
+                    <div class="col-md-4 position-relative">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80" class="img-fluid h-100 w-100 object-fit-cover event-img" style="min-height: 250px;" alt="JCOM Masterclass: AI for Business Growth">
+                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm badge-workshop">Workshop</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body p-4 d-flex flex-column h-100">
+                            <div class="d-flex align-items-center text-primary mb-2 fw-semibold">
+                                <i class="bi bi-calendar3 me-2"></i> Dec 05, 2026 | 03:00 PM - 06:00 PM
+                            </div>
+                            <h4 class="card-title fw-bold text-dark mb-3">JCOM Masterclass: AI for Business Growth</h4>
+                            <p class="card-text text-muted mb-4">Learn how to leverage Generative AI, automated CRM systems, and AI-driven marketing tools to scale your business operations and sales pipelines.</p>
+                            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-auto pt-3 border-top">
+                                <div class="text-muted small">
+                                    <i class="bi bi-geo-alt-fill me-2 text-danger"></i> Virtual (Zoom Interactive Session)
+                                </div>
+                                <a href="contact.html" class="btn btn-primary px-4 rounded-pill btn-sm fw-bold">Register Now <i class="bi bi-arrow-right-short ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- COMPLETED EVENTS SECTION -->
+    <div class="d-flex justify-content-between align-items-end mb-4 border-bottom pb-3 mt-5 pt-4">
+        <h2 class="fw-bold m-0" style="color: #64748b;" >Completed Events</h2>
+        <span class="badge bg-secondary px-3 py-2 rounded-pill fs-6" id="completedBadge" >3 Events</span>
+    </div>
+
+    <!-- Container for dynamic or static completed events -->
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5" id="completed-events-container">
+        
+        <!-- Default Completed Event 1 -->
+        <div class="col" >
+            <div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden event-card-completed">
+                <div class="position-relative overflow-hidden" style="height: 200px;">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80" class="card-img-top h-100 w-100 object-fit-cover event-img" alt="JCOM Zone 18 Presidents' Meet 2026">
+                    <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm badge-summit">Presidents Meet</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column">
+                    <span class="badge bg-light text-secondary mb-3 border align-self-start"><i class="bi bi-check-circle-fill text-success me-1"></i> Completed</span>
+                    <h5 class="card-title fw-bold text-dark mb-2">JCOM Zone 18 Presidents' Meet 2026</h5>
+                    <p class="text-muted small mb-3"><i class="bi bi-calendar3 me-1"></i> Feb 15, 2026</p>
+                    <p class="card-text text-muted small flex-grow-1">Annual strategic meet for all Zone 18 Table Presidents to align on growth milestones, membership benefits, and community initiatives.</p>
+                    <div class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1 text-danger"></i> Heritage Palace Hall, Tuticorin</div>
+                    <button class="btn btn-light btn-sm text-primary fw-bold w-100 rounded-pill mt-auto" onclick="openGallery('JCOM Zone 18 Presidents\' Meet 2026', 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800', 'Presidents discussing the strategic growth roadmap for Zone 18 tables.')">
+                        View Highlights <i class="bi bi-images ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Default Completed Event 2 -->
+        <div class="col"  >
+            <div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden event-card-completed">
+                <div class="position-relative overflow-hidden" style="height: 200px;">
+                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&auto=format&fit=crop&q=80" class="card-img-top h-100 w-100 object-fit-cover event-img" alt="JCOM Networking Breakfast Meet">
+                    <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm badge-networking">Networking</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column">
+                    <span class="badge bg-light text-secondary mb-3 border align-self-start"><i class="bi bi-check-circle-fill text-success me-1"></i> Completed</span>
+                    <h5 class="card-title fw-bold text-dark mb-2">JCOM Networking Breakfast Meet</h5>
+                    <p class="text-muted small mb-3"><i class="bi bi-calendar3 me-1"></i> Apr 10, 2026</p>
+                    <p class="card-text text-muted small flex-grow-1">Facilitated networking session with a focus on cross-chapter business referrals and strategic alliances.</p>
+                    <div class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1 text-danger"></i> Fortune Park Hotel, Virudhunagar</div>
+                    <button class="btn btn-light btn-sm text-primary fw-bold w-100 rounded-pill mt-auto" onclick="openGallery('JCOM Networking Breakfast Meet', 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800', 'JCOM delegates sharing business cards and pitching their companies.')">
+                        View Highlights <i class="bi bi-images ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Default Completed Event 3 -->
+        <div class="col"  >
+            <div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden event-card-completed">
+                <div class="position-relative overflow-hidden" style="height: 200px;">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80" class="card-img-top h-100 w-100 object-fit-cover event-img" alt="JCOM Business Excellence Awards 2026">
+                    <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm badge-awards">Awards Night</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column">
+                    <span class="badge bg-light text-secondary mb-3 border align-self-start"><i class="bi bi-check-circle-fill text-success me-1"></i> Completed</span>
+                    <h5 class="card-title fw-bold text-dark mb-2">JCOM Business Excellence Awards 2026</h5>
+                    <p class="text-muted small mb-3"><i class="bi bi-calendar3 me-1"></i> Jun 05, 2026</p>
+                    <p class="card-text text-muted small flex-grow-1">Recognizing the outstanding business contributions, young entrepreneurs, and social impact leaders within Zone 18 tables.</p>
+                    <div class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1 text-danger"></i> Taj Gateway Hotel, Coimbatore</div>
+                    <button class="btn btn-light btn-sm text-primary fw-bold w-100 rounded-pill mt-auto" onclick="openGallery('JCOM Business Excellence Awards 2026', 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800', 'Award ceremony recognizing outstanding business growth in the region.')">
+                        View Highlights <i class="bi bi-images ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+  <!-- GALLERY LIGHTBOX MODAL -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content border-0 bg-dark text-white" style="border-radius: 20px; overflow: hidden;">
+              <div class="modal-header border-0 pb-0">
+                  <h5 class="modal-title fw-bold text-white" id="galleryModalLabel">Event Highlights</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-4 text-center">
+                  <img src="" id="galleryModalImg" class="img-fluid rounded mb-3 object-fit-contain" style="max-height: 480px; width: 100%;" alt="Event Image">
+                  <p class="text-white-50 m-0 fs-6" id="galleryModalDesc"></p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-jcom">
+    <div class="container">
+      <div class="row g-4 footer-top">
+        <!-- BRAND -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-logo d-flex align-items-center mb-3">
+            <img src="images/logo1.png" alt="JCOM Logo" style="max-height: 60px;">
+          </div>
+          <p class="footer-desc">
+            JCOM is a dynamic leadership and business development platform empowering individuals to grow personally, professionally, and socially.
+          </p>
+          <div class="social-links mt-3">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- RESOURCES -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Resources</h5>
+          <ul class="footer-links">
+            <li><a href="#">Events & Workshops</a></li>
+            <li><a href="#">Business Networking</a></li>
+            <li><a href="#">Leadership Programs</a></li>
+            <li><a href="#">Community Service</a></li>
+          </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Contact Us</h5>
+          <ul class="footer-contact">
+            <li><i class="bi bi-geo-alt-fill"></i> JCOM Headquarters, India</li>
+            <li><i class="bi bi-envelope-fill"></i> info@jcom.org</li>
+            <li><i class="bi bi-telephone-fill"></i> +91 98765 43210</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BOTTOM -->
+      <div class="footer-bottom text-center">
+        <p class="mb-0">© 2026 JCOM. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  
+  <script>
+    // Initialize Animations
+    AOS.init({duration: 900, once: true});
+
+    // Gallery Modal Utility
+    function openGallery(title, imgUrl, description) {
+        document.getElementById('galleryModalLabel').innerText = title;
+        document.getElementById('galleryModalImg').src = imgUrl;
+        document.getElementById('galleryModalDesc').innerText = description;
+        const myModal = new bootstrap.Modal(document.getElementById('galleryModal'));
+        myModal.show();
+    }
+
+    // Default Fallback JCOM Events (Used if API is not configured or empty)
+    const defaultEvents = [
+      {
+        "ID": "1",
+        "Title": "JCOM Zone 18 Business Leadership Summit 2026",
+        "Category": "Summit",
+        "Date": "2026-10-18",
+        "Time": "09:30 AM - 05:30 PM",
+        "Location": "Zone 18 Convention Centre, Chennai",
+        "ImageUrl": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=80",
+        "ActionUrl": "contact.html",
+        "Description": "A high-impact summit featuring national business coaches, trade networking sessions, and panels on scaling businesses, digital transformation, and investment strategies."
+      },
+      {
+        "ID": "2",
+        "Title": "JCOM Zone 18 B2B Expo & Trade Fair",
+        "Category": "Trade Expo",
+        "Date": "2026-11-12",
+        "Time": "10:00 AM - 08:00 PM",
+        "Location": "Grand Royal Palace Hall, Madurai",
+        "ImageUrl": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&auto=format&fit=crop&q=80",
+        "ActionUrl": "contact.html",
+        "Description": "Exhibit your business products, connect with potential distributors, and build franchise connections with over 500+ delegates from Zone 18 tables."
+      },
+      {
+        "ID": "3",
+        "Title": "JCOM Masterclass: AI for Business Growth",
+        "Category": "Workshop",
+        "Date": "2026-12-05",
+        "Time": "03:00 PM - 06:00 PM",
+        "Location": "Virtual (Zoom Interactive Session)",
+        "ImageUrl": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80",
+        "ActionUrl": "contact.html",
+        "Description": "Learn how to leverage Generative AI, automated CRM systems, and AI-driven marketing tools to scale your business operations and sales pipelines."
+      },
+      {
+        "ID": "4",
+        "Title": "JCOM Zone 18 Presidents' Meet 2026",
+        "Category": "Summit",
+        "Date": "2026-02-15",
+        "Time": "10:00 AM - 04:00 PM",
+        "Location": "Heritage Palace Hall, Tuticorin",
+        "ImageUrl": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80",
+        "ActionUrl": "#",
+        "Description": "Annual strategic meet for all Zone 18 Table Presidents to align on growth milestones, membership benefits, and community initiatives."
+      },
+      {
+        "ID": "5",
+        "Title": "JCOM Networking Breakfast Meet",
+        "Category": "Networking",
+        "Date": "2026-04-10",
+        "Time": "08:00 AM - 11:00 AM",
+        "Location": "Fortune Park Hotel, Virudhunagar",
+        "ImageUrl": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&auto=format&fit=crop&q=80",
+        "ActionUrl": "#",
+        "Description": "Facilitated networking session with a focus on cross-chapter business referrals and strategic alliances."
+      },
+      {
+        "ID": "6",
+        "Title": "JCOM Business Excellence Awards 2026",
+        "Category": "Awards Night",
+        "Date": "2026-06-05",
+        "Time": "06:30 PM - 10:30 PM",
+        "Location": "Taj Gateway Hotel, Coimbatore",
+        "ImageUrl": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80",
+        "ActionUrl": "#",
+        "Description": "Recognizing the outstanding business contributions, young entrepreneurs, and social impact leaders within Zone 18 tables."
+      }
+    ];
+
+    // Helper functions
+    function formatDate(dateStr) {
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        const date = new Date(dateStr);
+        return isNaN(date.getTime()) ? dateStr : date.toLocaleDateString('en-US', options);
+    }
+
+    function getBadgeClass(category) {
+        if (!category) return 'bg-primary';
+        const cat = category.toLowerCase();
+        if (cat.includes('summit')) return 'badge-summit';
+        if (cat.includes('expo') || cat.includes('trade')) return 'badge-expo';
+        if (cat.includes('workshop') || cat.includes('masterclass')) return 'badge-workshop';
+        if (cat.includes('networking') || cat.includes('breakfast')) return 'badge-networking';
+        if (cat.includes('award')) return 'badge-awards';
+        return 'bg-primary';
+    }
+
+    // Dynamic Rendering Core
+    function renderEvents(events) {
+        const upcomingContainer = document.getElementById('upcoming-events-container');
+        const completedContainer = document.getElementById('completed-events-container');
+        
+        upcomingContainer.innerHTML = '';
+        completedContainer.innerHTML = '';
+
+        // Reference target date for comparison (June 15, 2026)
+        const currentDate = new Date("2026-06-15");
+
+        let upcomingCount = 0;
+        let completedCount = 0;
+
+        events.forEach(event => {
+            const eventDate = new Date(event.Date);
+            const isUpcoming = isNaN(eventDate.getTime()) ? true : eventDate >= currentDate;
+
+            if (isUpcoming) {
+                upcomingCount++;
+                const card = document.createElement('div');
+                card.className = 'col-lg-12';
+                card.innerHTML = `
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden event-card-upcoming">
+                        <div class="row g-0">
+                            <div class="col-md-4 position-relative">
+                                <img src="${event.ImageUrl || 'https://placehold.co/600x400?text=JCOM+Event'}" 
+                                     class="img-fluid h-100 w-100 object-fit-cover event-img" 
+                                     style="min-height: 250px;" 
+                                     alt="${event.Title}"
+                                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800'">
+                                <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm ${getBadgeClass(event.Category)}">${event.Category || 'Event'}</span>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4 d-flex flex-column h-100">
+                                    <div class="d-flex align-items-center text-primary mb-2 fw-semibold">
+                                        <i class="bi bi-calendar3 me-2"></i> ${formatDate(event.Date)} ${event.Time ? ' | ' + event.Time : ''}
+                                    </div>
+                                    <h4 class="card-title fw-bold text-dark mb-3">${event.Title}</h4>
+                                    <p class="card-text text-muted mb-4">${event.Description || ''}</p>
+                                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mt-auto pt-3 border-top">
+                                        <div class="text-muted small">
+                                            <i class="bi bi-geo-alt-fill me-2 text-danger"></i> ${event.Location || 'JCOM Center'}
+                                        </div>
+                                        <a href="${event.ActionUrl && event.ActionUrl !== '#' ? event.ActionUrl : 'contact.html'}" 
+                                           class="btn btn-primary px-4 rounded-pill btn-sm fw-bold">Register Now <i class="bi bi-arrow-right-short ms-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                upcomingContainer.appendChild(card);
+            } else {
+                completedCount++;
+                const card = document.createElement('div');
+                card.className = 'col';
+                card.innerHTML = `
+                    <div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden event-card-completed">
+                        <div class="position-relative overflow-hidden" style="height: 200px;">
+                            <img src="${event.ImageUrl || 'https://placehold.co/600x400?text=JCOM+Event'}" 
+                                 class="card-img-top h-100 w-100 object-fit-cover event-img" 
+                                 alt="${event.Title}"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?w=800'">
+                            <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm ${getBadgeClass(event.Category)}">${event.Category || 'Event'}</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="badge bg-light text-secondary mb-3 border align-self-start"><i class="bi bi-check-circle-fill text-success me-1"></i> Completed</span>
+                            <h5 class="card-title fw-bold text-dark mb-2">${event.Title}</h5>
+                            <p class="text-muted small mb-3"><i class="bi bi-calendar3 me-1"></i> ${formatDate(event.Date)}</p>
+                            <p class="card-text text-muted small flex-grow-1">${event.Description || ''}</p>
+                            <div class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1 text-danger"></i> ${event.Location || 'JCOM Venue'}</div>
+                            <button class="btn btn-light btn-sm text-primary fw-bold w-100 rounded-pill mt-auto" 
+                                    onclick="openGallery('${String(event.Title).replace(/'/g, "\\'")}', '${event.ImageUrl || 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800'}', '${(event.Description || '').replace(/'/g, "\\'")}')">
+                                View Highlights <i class="bi bi-images ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                completedContainer.appendChild(card);
+            }
+        });
+
+        // Update Badges counts
+        document.getElementById('upcomingBadge').innerText = `${upcomingCount} Event${upcomingCount !== 1 ? 's' : ''}`;
+        document.getElementById('completedBadge').innerText = `${completedCount} Event${completedCount !== 1 ? 's' : ''}`;
+
+        if (upcomingCount === 0) {
+            upcomingContainer.innerHTML = `<div class="col-12 text-center text-muted py-5"><i class="bi bi-calendar-x fs-2"></i><p class="mt-2">No upcoming events scheduled at the moment.</p></div>`;
+        }
+        if (completedCount === 0) {
+            completedContainer.innerHTML = `<div class="col-12 text-center text-muted py-5"><i class="bi bi-calendar-x fs-2"></i><p class="mt-2">No completed events found.</p></div>`;
+        }
+
+        // Refresh AOS to calculate positions for newly loaded dynamic cards
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }
+
+    // ======================================================================
+    // PASTE YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL HERE
+    // ======================================================================
+    const API_URL = "https://script.google.com/macros/s/AKfycbwBMkw-0QorTLbFgWvMcL-mROGSzPAPQv7hH1x2BluP61sSuSz6peeDmBEZSL2UGw6SHg/exec";
+
+    // Fetch data using JSONP as a fallback to bypass CORS/Tracking Prevention on local hosts
+    function fetchWithJSONPFallback(url, action) {
+        return fetch(`${url}?action=${action}`)
+            .then(res => {
+                if (!res.ok) throw new Error("CORS or Network Error");
+                return res.json();
+            })
+            .catch(err => {
+                console.warn(`Standard fetch failed for action ${action}. Trying JSONP callback fallback...`, err);
+                
+                return new Promise((resolve, reject) => {
+                    const callbackName = 'jsonp_' + action + '_' + Math.round(Math.random() * 1000000);
+                    const script = document.createElement('script');
+                    
+                    window[callbackName] = function(data) {
+                        resolve(data);
+                        document.body.removeChild(script);
+                        delete window[callbackName];
+                    };
+                    
+                    script.onerror = (scriptErr) => {
+                        reject(new Error(`Both fetch and JSONP failed for ${action}`));
+                        document.body.removeChild(script);
+                        delete window[callbackName];
+                    };
+                    
+                    script.src = `${url}?action=${action}&callback=${callbackName}`;
+                    document.body.appendChild(script);
+                });
+            });
+    }
+
+    // Initialize Page Data Loader
+    document.addEventListener('DOMContentLoaded', () => {
+        if (API_URL && API_URL.startsWith("https://script.google.com/macros/s/")) {
+            // Attempt to load from Google Sheet Web App
+            fetchWithJSONPFallback(API_URL, "getEvents")
+                .then(data => {
+                    if (data && data.length > 0) {
+                        renderEvents(data);
+                    } else {
+                        // Empty Sheet, render fallbacks
+                        renderEvents(defaultEvents);
+                    }
+                })
+                .catch(err => {
+                    console.warn("Google Sheet sync error, using default fallback data:", err);
+                    renderEvents(defaultEvents);
+                });
+        } else {
+            // No API URL, render default fallback data
+            renderEvents(defaultEvents);
+        }
+    });
+  
+
+    // Handle header scroll & auto active nav link highlights
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.fixed-header');
+      if (header) {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+
+</script>
+</body>
+</html>
