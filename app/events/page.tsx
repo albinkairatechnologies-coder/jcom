@@ -155,9 +155,15 @@ export default async function EventsPage() {
                     <div className="col-md-4 position-relative">
                       <img
                         src={event.imageUrl || "https://placehold.co/600x400?text=JCOM+Event"}
-                        className="img-fluid h-100 w-100 object-fit-cover event-img"
-                        style={{ minHeight: "250px" }}
+                        className="img-fluid h-100 w-100 object-fit-cover event-img highlight-btn"
+                        style={{ minHeight: "250px", cursor: "pointer" }}
                         alt={event.title}
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryModal"
+                        data-title={event.title}
+                        data-img={event.imageUrl || "https://placehold.co/600x400"}
+                        data-gallery={JSON.stringify(event.galleryImages || [])}
+                        data-desc={event.description}
                       />
                       <span className={`badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm ${getBadgeClass(event.category)}`}>
                         {event.category || "Event"}
@@ -227,8 +233,15 @@ export default async function EventsPage() {
                   <div className="position-relative overflow-hidden" style={{ height: "200px" }}>
                     <img
                       src={event.imageUrl || "https://placehold.co/600x400?text=JCOM+Event"}
-                      className="card-img-top h-100 w-100 object-fit-cover event-img"
+                      className="card-img-top h-100 w-100 object-fit-cover event-img highlight-btn"
+                      style={{ cursor: "pointer" }}
                       alt={event.title}
+                      data-bs-toggle="modal"
+                      data-bs-target="#galleryModal"
+                      data-title={event.title}
+                      data-img={event.imageUrl || "https://placehold.co/600x400"}
+                      data-gallery={JSON.stringify(event.galleryImages || [])}
+                      data-desc={event.description}
                     />
                     <span className={`badge position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill shadow-sm ${getBadgeClass(event.category)}`}>
                       {event.category || "Event"}

@@ -54,10 +54,10 @@ export default function EventsModalHandler() {
             
             {modalData.images.length > 1 ? (
               <div id="eventGalleryCarousel" className="carousel slide mb-3" data-bs-ride="carousel">
-                <div className="carousel-inner rounded" style={{ maxHeight: "480px" }}>
+                 <div className="carousel-inner rounded" style={{ maxHeight: "80vh" }}>
                   {modalData.images.map((img, index) => (
                     <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
-                      <img src={img} className="d-block w-100 object-fit-contain" style={{ maxHeight: "480px" }} alt="Highlight" />
+                      <img src={img} className="d-block mx-auto object-fit-contain" style={{ maxHeight: "80vh", maxWidth: "100%" }} alt="Highlight" />
                     </div>
                   ))}
                 </div>
@@ -71,7 +71,7 @@ export default function EventsModalHandler() {
                 </button>
               </div>
             ) : modalData.images.length === 1 && modalData.images[0] ? (
-              <img src={modalData.images[0]} className="img-fluid rounded mb-3 object-fit-contain mx-auto" style={{ maxHeight: "480px", width: "100%" }} alt="Event Image" />
+              <img src={modalData.images[0]} className="img-fluid rounded mb-3 object-fit-contain mx-auto d-block" style={{ maxHeight: "80vh", maxWidth: "100%", width: "auto" }} alt="Event Image" />
             ) : null}
 
             <p className="text-white-50 m-0 fs-6">{modalData.desc}</p>
