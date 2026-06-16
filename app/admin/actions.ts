@@ -4,9 +4,21 @@ import { db } from "@/lib/db";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 import { revalidatePath } from "next/cache";
+import { uploadToCloudinary } from "@/lib/cloudinary";
 
-// Helper to save uploaded file locally under /public/uploads
+// Helper to save uploaded file (Cloudinary in production, local storage in development)
 async function saveUploadedFile(file: File): Promise<string> {
+  // If Cloudinary credentials are set up on Render, upload to the cloud
+  if (process.env.CLOUDINARY_CLOUD_NAME) {
+    try {
+      return await uploadToCloudinary(file);
+    } catch (error) {
+      console.error("Cloudinary upload failed, falling back:", error);
+      throw new Error("Failed to save image file to cloud storage.");
+    }
+  }
+
+  // Fallback to local files for local development
   try {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
@@ -25,7 +37,7 @@ async function saveUploadedFile(file: File): Promise<string> {
     await writeFile(filepath, buffer);
     return `/uploads/${filename}`;
   } catch (error) {
-    console.error("Failed to save file upload:", error);
+    console.error("Failed to save file upload locally:", error);
     throw new Error("Failed to save image file on server.");
   }
 }
