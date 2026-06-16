@@ -152,11 +152,11 @@ export default async function EventsPage() {
               <div className="col-lg-12" key={event.id}>
                 <div className="card border-0 shadow-sm rounded-4 overflow-hidden event-card-upcoming">
                   <div className="row g-0">
-                    <div className="col-md-4 position-relative">
+                    <div className="col-md-4 position-relative" style={{ minHeight: "280px" }}>
                       <img
                         src={event.imageUrl || "https://placehold.co/600x400?text=JCOM+Event"}
-                        className="img-fluid h-100 w-100 object-fit-cover event-img highlight-btn"
-                        style={{ minHeight: "250px", cursor: "pointer" }}
+                        className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover event-img highlight-btn"
+                        style={{ cursor: "pointer" }}
                         alt={event.title}
                         data-bs-toggle="modal"
                         data-bs-target="#galleryModal"
